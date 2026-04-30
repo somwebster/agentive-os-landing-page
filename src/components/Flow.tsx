@@ -16,35 +16,49 @@ const Flow = () => {
 
         <div className="flow-steps fade-up fade-up-delay-2">
           <div className="flow-connector"></div>
+          
+          {/* Step 1: Define */}
           <div className="flow-step">
             <div className="flow-badge flow-badge-1">
               <div className="flow-badge-inner">
                 <span className="flow-badge-num">01</span>
-                <span className="flow-badge-word">Context</span>
+                <span className="flow-badge-word">Define</span>
               </div>
             </div>
-            <div className="flow-step-title">Structure</div>
-            <div className="flow-step-desc">We map your entire operational reality — clients, projects, workflows, knowledge — into a unified data layer your agents live and breathe.</div>
+            <div className="flow-step-desc">Map workflows to uncover bottlenecks, tool gaps, and AI opportunities.</div>
           </div>
+
+          {/* Step 2: Develop */}
           <div className="flow-step">
             <div className="flow-badge flow-badge-2">
               <div className="flow-badge-inner">
                 <span className="flow-badge-num">02</span>
-                <span className="flow-badge-word">Decision</span>
+                <span className="flow-badge-word">Develop</span>
               </div>
             </div>
-            <div className="flow-step-title">Direct</div>
-            <div className="flow-step-desc">Your team uses structured context to set strategy and make key calls. Humans stay in command of every decision that matters.</div>
+            <div className="flow-step-desc">Build your context system, agents, and workflows using Agentive SDK & APIs.</div>
           </div>
+
+          {/* Step 3: Deploy */}
           <div className="flow-step">
             <div className="flow-badge flow-badge-3">
               <div className="flow-badge-inner">
                 <span className="flow-badge-num">03</span>
-                <span className="flow-badge-word">Execute</span>
+                <span className="flow-badge-word">Deploy</span>
               </div>
             </div>
-            <div className="flow-step-title">Deliver</div>
-            <div className="flow-step-desc">Custom agents handle the heavy lifting reliably at scale — drafting, processing, coordinating — while your team focuses on what only humans can do.</div>
+            <div className="flow-step-desc">Launch production-ready environments on Agentive Cloud or your own infra.</div>
+          </div>
+
+          {/* Step 4: Monitor */}
+          <div className="flow-step">
+            <div className="flow-badge flow-badge-4">
+              <div className="flow-badge-inner">
+                <span className="flow-badge-num">04</span>
+                <span className="flow-badge-word">Monitor</span>
+              </div>
+            </div>
+            <div className="flow-step-desc">Track throughput, optimize agents, and continuously identify new bottlenecks.</div>
           </div>
         </div>
       </div>

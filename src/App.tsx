@@ -1,11 +1,14 @@
 import React, { useEffect } from 'react'
-import Header from './components/header'
+import { NavigationDock } from './components/NavigationDock'
+import { TopMenuBar } from './components/TopMenuBar'
 import Hero from './components/Hero'
 import Problem from './components/Problem'
 import Duality from './components/Duality'
 import Solution from './components/Solution'
 import Flow from './components/Flow'
 import Benefits from './components/Benefits'
+import CaseStudy from './components/CaseStudy'
+import Pricing from './components/Pricing'
 import CTA from './components/CTA'
 import Footer from './components/Footer'
 import './App.css'
@@ -31,7 +34,7 @@ function App() {
 
   return (
     <div className="app-wrapper">
-      <Header />
+      <NavigationDock />
       <main>
         <Hero />
         <div className="section-divider"></div>
@@ -42,7 +45,11 @@ function App() {
         <div className="section-divider"></div>
         <Flow />
         <div className="section-divider"></div>
+        <Pricing />
+        <div className="section-divider"></div>
         <Benefits />
+        <div className="section-divider"></div>
+        <CaseStudy />
         <CTA />
       </main>
       <Footer />

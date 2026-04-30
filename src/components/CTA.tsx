@@ -5,10 +5,10 @@ const CTA = () => {
     <section className="cta-section" id="cta">
       <div className="container">
         <div className="cta-inner fade-up">
-          <div className="cta-tag">The Future is Agent-Native</div>
+          <div className="cta-tag">Ready to Transform?</div>
           <h2 className="cta-title">
-            Your team thinks.<br />
-            <span className="gradient-text-both">The system does.</span>
+            The Future of Agency is<br />
+            <span className="gradient-text-both">Agent Native</span>
           </h2>
           <p className="cta-sub">Built for human-centered agencies ready to move past operational strain. Early access is limited.</p>
           <div className="cta-actions">

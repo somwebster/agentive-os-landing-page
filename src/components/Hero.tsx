@@ -1,16 +1,16 @@
-import React from 'react';
-import { ShaderBackground } from './ShaderBackground';
+import { VideoBackground } from './VideoBackground';
+import { TopMenuBar } from './TopMenuBar';
 
 const Hero = () => {
   return (
     <section className="hero">
-      <ShaderBackground />
+      <TopMenuBar />
+      <VideoBackground />
       <div className="container" style={{ position: 'relative', zIndex: 1 }}>
         <div className="hero-layout">
           {/* TEXT CONTENT */}
           <div className="hero-text">
             <div className="hero-eyebrow fade-up">
-              <div className="hero-eyebrow-dot"></div>
               Now in Early Access
             </div>
             <h1 className="hero-headline fade-up fade-up-delay-1">
@@ -18,13 +18,9 @@ const Hero = () => {
               <span className="gradient-text-both">Human-Centered</span><br />
               Agencies
             </h1>
-            <p className="hero-subhead fade-up fade-up-delay-2">
-              A fully managed, agent-native operational layer built around your process - not another tool on top of it.
+            <p className="hero-subhead fade-up fade-up-delay-2 font-bold text-white/90">
+              Build Agent Native operational system with your context, workflows & agents. Fully Managed, Fully Yours.
             </p>
-            <div className="hero-actions fade-up fade-up-delay-3">
-              <a href="#cta" className="btn-primary btn-large">Join Waitlist</a>
-              <a href="#cta" className="btn-ghost btn-large">Book a Demo →</a>
-            </div>
           </div>
         </div>
       </div>
