@@ -17,6 +17,7 @@ import {
 } from 'lucide-react';
 import Hero from './components/Hero';
 import Problem from './components/Problem';
+import OperationalLayer from './components/OperationalLayer';
 import Flow from './components/Flow';
 import CTA from './components/CTA';
 import { ShaderBackground } from './components/ShaderBackground';
@@ -154,6 +155,7 @@ function App() {
           <main className="page-main">
             <Hero />
             <Problem />
+            <OperationalLayer />
             <Flow />
             <CTA />
           </main>
