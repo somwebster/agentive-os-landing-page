@@ -131,43 +131,6 @@ const OperationalLayer = () => {
         </div>
 
       </div>
-
-      {/* Case Study Card */}
-      <div style={{ maxWidth: '1200px', margin: '4rem auto 0', padding: '0 2rem' }}>
-        <div style={{ 
-          background: 'linear-gradient(135deg, rgba(247, 98, 30, 0.08), rgba(168, 85, 247, 0.08))',
-          border: '1px solid rgba(247, 98, 30, 0.2)',
-          borderRadius: 'var(--radius-card)',
-          padding: '2.5rem 2rem',
-          display: 'flex',
-          flexDirection: 'column',
-          alignItems: 'flex-start',
-          textAlign: 'left',
-          gap: '1rem'
-        }}>
-          <div style={{ fontSize: '0.85rem', fontWeight: 700, color: 'var(--brand-primary-500)', textTransform: 'uppercase', letterSpacing: '0.05em' }}>
-            Case Study
-          </div>
-          <h3 style={{ fontSize: '1.5rem', color: 'var(--neutral-900)', margin: 0, lineHeight: 1.3 }}>
-            Organic Marketing Launches Kommerce
-            <span style={{ display: 'block', fontSize: '1.1rem', color: 'var(--neutral-600)', marginTop: '0.25rem', fontWeight: 500 }}>
-              The AI Native Agency Powered by Agentive OS
-            </span>
-          </h3>
-          <p style={{ fontSize: '1.25rem', fontWeight: 600, color: 'var(--neutral-800)', margin: 0 }}>
-            <span style={{ background: 'linear-gradient(90deg, #F7621E 0%, #a855f7 100%)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>2x capacity increase</span> in 30 days without a single hire.
-          </p>
-          
-          <div style={{ marginTop: '1rem', paddingLeft: '1.5rem', borderLeft: '3px solid var(--brand-primary-500)' }}>
-            <p style={{ fontSize: '1rem', fontStyle: 'italic', color: 'var(--neutral-700)', margin: 0, lineHeight: 1.5 }}>
-              "Agentive OS didn't just automate tasks; it completely transformed our capacity. We scaled our operations overnight and doubled our output without expanding the team."
-            </p>
-            <div style={{ marginTop: '0.5rem', fontSize: '0.9rem', fontWeight: 600, color: 'var(--neutral-900)' }}>
-              — Team Kommerce
-            </div>
-          </div>
-        </div>
-      </div>
     </section>
   );
 };

@@ -18,6 +18,7 @@ import {
 import Hero from './components/Hero';
 import Problem from './components/Problem';
 import OperationalLayer from './components/OperationalLayer';
+import CaseStudy from './components/CaseStudy';
 import Flow from './components/Flow';
 import CTA from './components/CTA';
 import { ShaderBackground } from './components/ShaderBackground';
@@ -156,6 +157,7 @@ function App() {
             <Hero />
             <Problem />
             <OperationalLayer />
+            <CaseStudy />
             <Flow />
             <CTA />
           </main>
