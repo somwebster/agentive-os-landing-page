@@ -4,7 +4,7 @@ const Flow = () => {
   return (
     <section className="flow" style={{ marginTop: '6rem' }}>
       <p style={{ textTransform: 'uppercase', letterSpacing: '0.05em', color: 'var(--neutral-700)', fontWeight: 600, fontSize: '0.9rem' }}>How It Works</p>
-      <h2 style={{ fontSize: '2.5rem', marginTop: '0.5rem', marginBottom: '1rem', lineHeight: 1.2 }}>
+      <h2 className="section-heading" style={{ marginBottom: '1rem' }}>
         Human-Led Strategy.<br />
         <span style={{ color: 'var(--brand-secondary-500)' }}>AI-Powered Execution.</span>
       </h2>

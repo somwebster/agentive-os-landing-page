@@ -19,6 +19,7 @@ import Hero from './components/Hero';
 import Problem from './components/Problem';
 import Flow from './components/Flow';
 import CTA from './components/CTA';
+import { ShaderBackground } from './components/ShaderBackground';
 
 function App() {
   const [isDark, setIsDark] = useState(false);
@@ -35,7 +36,8 @@ function App() {
 
   return (
     <div className={`page-wrapper ${isDark ? 'dark-mode' : ''} dd-page`}>
-      <div className="layout-horizontal">
+      <ShaderBackground isDark={isDark} />
+      <div className={`layout-horizontal ${isCollapsed ? 'sidebar-collapsed' : ''}`}>
         <aside className={`sidebar ${isCollapsed ? 'collapsed' : ''}`}>
           <div className="sidebar-brand">
             <img
@@ -79,7 +81,7 @@ function App() {
 
             {/* Builders Group */}
             {!isCollapsed && (
-              <div style={{ marginTop: '1.5rem', marginBottom: '0.5rem', paddingLeft: '0.75rem', fontSize: '0.75rem', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.05em', color: 'var(--neutral-700)' }}>
+              <div className="nav-group-label" style={{ marginTop: '1.5rem', marginBottom: '0.5rem', paddingLeft: '0.75rem', fontSize: '0.75rem', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.05em', color: 'var(--neutral-700)' }}>
                 For Builders
               </div>
             )}
@@ -106,14 +108,7 @@ function App() {
           </nav>
 
           <div className="sidebar-footer">
-            <button onClick={toggleTheme} className="collapse-toggle" title="Toggle Theme">
-              <div className="nav-icon">
-                {isDark ? <Sun size={20} strokeWidth={2} /> : <Moon size={20} strokeWidth={2} />}
-              </div>
-              <span>{isDark ? 'Light mode' : 'Dark mode'}</span>
-            </button>
-
-            <a href="#" className="btn btn-purple" style={{ 
+            <a href="#" className="btn btn-purple" style={{
               margin: '0.5rem 0.75rem', 
               padding: isCollapsed ? '0.75rem' : '0.75rem 1.5rem',
               display: 'flex', 
@@ -151,8 +146,12 @@ function App() {
           </div>
         </aside>
 
+        <button onClick={toggleTheme} className="theme-toggle-fixed" title="Toggle Theme">
+          {isDark ? <Sun size={20} strokeWidth={2} /> : <Moon size={20} strokeWidth={2} />}
+        </button>
+
         <div className="main-content">
-          <main style={{ padding: 'var(--page-padding)' }}>
+          <main className="page-main">
             <Hero />
             <Problem />
             <Flow />
