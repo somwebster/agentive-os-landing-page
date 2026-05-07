@@ -560,7 +560,7 @@ h1.hero-title {
 .features-grid {
   min-height: auto;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
   align-content: center;
   gap: 1.25rem;
   padding: 0.5rem 0 2rem;
