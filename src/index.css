@@ -2650,3 +2650,24 @@ h1.hero-title {
     font-size: 0.7rem;
   }
 }
+
+/* Hero Bento Grid */
+.bento-hero-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.25rem;
+  max-width: 1200px;
+  margin: 2rem auto;
+  padding: 0 2rem;
+  position: relative;
+  z-index: 10;
+}
+
+@media (min-width: 768px) {
+  .bento-hero-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .bento-logos-card {
+    grid-column: span 2;
+  }
+}
