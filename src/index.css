@@ -1479,7 +1479,7 @@ h1.hero-title {
     white-space: normal !important;
     text-align: center;
     width: 100%;
-    font-size: clamp(1.75rem, 8vw, 3rem) !important;
+    font-size: clamp(2rem, 10vw, 3.5rem) !important;
     line-height: 1.15;
     margin: 0 auto;
     overflow-wrap: break-word;
@@ -1540,7 +1540,7 @@ h1.hero-title {
 
 @media (max-width: 480px) {
   .dd-hero-title {
-    font-size: 1.85rem !important;
+    font-size: 2.5rem !important;
     padding: 0 0.5rem;
   }
 
