@@ -1,61 +1,77 @@
 {
-  "hash": "610383de",
+  "hash": "0466e1a3",
   "configHash": "914e942c",
-  "lockfileHash": "7ae71604",
-  "browserHash": "f484194b",
+  "lockfileHash": "b30f24e4",
+  "browserHash": "b192d019",
   "optimized": {
+    "@icons-pack/react-simple-icons": {
+      "src": "../../node_modules/@icons-pack/react-simple-icons/index.mjs",
+      "file": "@icons-pack_react-simple-icons.js",
+      "fileHash": "9c52641a",
+      "needsInterop": false
+    },
     "clsx": {
       "src": "../../node_modules/clsx/dist/clsx.mjs",
       "file": "clsx.js",
-      "fileHash": "5cf42574",
+      "fileHash": "862fe928",
       "needsInterop": false
     },
     "framer-motion": {
       "src": "../../node_modules/framer-motion/dist/es/index.mjs",
       "file": "framer-motion.js",
-      "fileHash": "2a444546",
+      "fileHash": "c075114b",
       "needsInterop": false
     },
     "lucide-react": {
       "src": "../../node_modules/lucide-react/dist/esm/lucide-react.mjs",
       "file": "lucide-react.js",
-      "fileHash": "b5f5fc9f",
+      "fileHash": "cf0ea543",
       "needsInterop": false
     },
     "motion/react": {
       "src": "../../node_modules/motion/dist/es/react.mjs",
       "file": "motion_react.js",
-      "fileHash": "da3dab71",
+      "fileHash": "4ac52d7a",
       "needsInterop": false
     },
     "react-dom/client": {
       "src": "../../node_modules/react-dom/client.js",
       "file": "react-dom_client.js",
-      "fileHash": "89ee166e",
+      "fileHash": "6bf4f81c",
+      "needsInterop": true
+    },
+    "react-fast-marquee": {
+      "src": "../../node_modules/react-fast-marquee/dist/index.js",
+      "file": "react-fast-marquee.js",
+      "fileHash": "33d5135e",
       "needsInterop": true
     },
     "react": {
       "src": "../../node_modules/react/index.js",
       "file": "react.js",
-      "fileHash": "ee636c2f",
+      "fileHash": "5de58404",
       "needsInterop": true
     },
     "react/jsx-dev-runtime": {
       "src": "../../node_modules/react/jsx-dev-runtime.js",
       "file": "react_jsx-dev-runtime.js",
-      "fileHash": "0a16ff60",
+      "fileHash": "a0216e74",
       "needsInterop": true
     },
     "tailwind-merge": {
       "src": "../../node_modules/tailwind-merge/dist/bundle-mjs.mjs",
       "file": "tailwind-merge.js",
-      "fileHash": "580d4aaa",
+      "fileHash": "bb33536c",
       "needsInterop": false
     }
   },
   "chunks": {
-    "es-D2gaCWRQ": {
-      "file": "es-D2gaCWRQ.js",
+    "es-Dy6fasJ3": {
+      "file": "es-Dy6fasJ3.js",
+      "isDynamicEntry": false
+    },
+    "jsx-runtime-O5qE-4No": {
+      "file": "jsx-runtime-O5qE-4No.js",
       "isDynamicEntry": false
     },
     "react-BDWiK9rz": {
