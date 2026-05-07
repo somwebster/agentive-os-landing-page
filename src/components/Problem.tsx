@@ -4,7 +4,6 @@ import { Link2Off, BrainCircuit, Users, Zap } from 'lucide-react';
 const Problem = () => {
   return (
     <section className="problem" style={{ marginTop: '6rem' }}>
-      <p style={{ textTransform: 'uppercase', letterSpacing: '0.05em', color: 'var(--neutral-700)', fontWeight: 600, fontSize: '0.9rem' }}>The Problem</p>
       <h2 className="section-heading">
         Agencies run on duct tape.<br />
         <span style={{ color: 'var(--brand-primary-500)' }}>It works — until it doesn't.</span>

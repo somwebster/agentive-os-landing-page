@@ -1,14 +1,4 @@
 @import url('https://fonts.googleapis.com/css2?family=Google+Sans:ital,opsz,wght@0,17..18,400..700;1,17..18,400..700&display=swap');
-@import "tailwindcss";
-
-@theme {
-  --color-brand-primary-500: #f7621e;
-  --color-brand-primary-400: #fa803e;
-  --color-brand-primary-25: #fff4ee;
-  --color-brand-secondary-500: #963bf7;
-  --color-brand-secondary-400: #a855f7;
-  --color-brand-secondary-25: #f9f5fe;
-}
 
 :root {
   /* =========================================

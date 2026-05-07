@@ -17,9 +17,11 @@ export default function LandingHero({
         <motion.h1 className="dd-hero-title" initial={{ opacity: 0, y: 24 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }}>
           {title}
         </motion.h1>
-        <motion.p className="dd-hero-sub" initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.2 }}>
-          {subtitle}
-        </motion.p>
+        {subtitle && (
+          <motion.p className="dd-hero-sub" initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.2 }}>
+            {subtitle}
+          </motion.p>
+        )}
       </div>
 
       <motion.div className="dd-about-wrap" initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.4 }}>

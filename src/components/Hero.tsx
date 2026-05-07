@@ -1,8 +1,7 @@
 import React from 'react';
 import { Server, ShieldCheck } from 'lucide-react';
 import LandingHero from './LandingHero';
-import { HeroHighlight } from './hero-highlight';
-import { PointerHighlight } from './ui/pointer-highlight';
+import { HeroHighlight, Highlight } from './hero-highlight';
 import { motion } from 'framer-motion';
 
 const Hero: React.FC = () => {
@@ -16,17 +15,37 @@ const Hero: React.FC = () => {
       <div className="dd-hero-center relative z-10">
         <LandingHero
           title={
-            <div className="flex flex-col items-center">
-              <span>The best way to grow is to</span>
-              <PointerHighlight 
-                rectangleClassName="border-brand-primary-500 dark:border-brand-primary-400 border-2"
-                pointerClassName="text-brand-primary-500"
-              >
-                <span className="px-4 py-1">collaborate</span>
-              </PointerHighlight>
-            </div>
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5 }}
+              style={{ lineHeight: 1.1 }}
+            >
+              <div style={{
+                fontSize: '0.25em',
+                fontWeight: 600,
+                textTransform: 'uppercase',
+                letterSpacing: '0.1em',
+                color: 'var(--brand-primary-500)',
+                marginBottom: '1rem',
+                display: 'block'
+              }}>
+                Built for AI Native Agencies
+              </div>
+              <span style={{ fontSize: '0.65em', fontWeight: 500 }}>
+                The Operating System for
+              </span>
+              <br />
+              <span style={{
+                background: 'linear-gradient(90deg, #F7621E 0%, #a855f7 100%)',
+                WebkitBackgroundClip: 'text',
+                WebkitTextFillColor: 'transparent',
+                fontWeight: 700
+              }}>
+                Humans + AI
+              </span>
+            </motion.div>
           }
-          subtitle="Agentive OS is the operating layer that connects your data, your team, and your AI agents — built specifically for how your agency runs."
           ctaLabel="Get Started"
           onCtaClick={() => console.log('Book Demo')}
         />
@@ -37,15 +56,15 @@ const Hero: React.FC = () => {
           <div style={{ color: 'var(--brand-primary-500)', marginBottom: '1rem' }}>
             <Server size={32} strokeWidth={2} />
           </div>
-          <h3>Dedicated instance</h3>
-          <p style={{ marginTop: '0.8rem' }}>Your Agentive OS is spun up specifically for your agency, ensuring complete isolation and performance.</p>
+          <h3>Fully Managed.</h3>
+          <p style={{ marginTop: '0.8rem' }}>We handle infrastructure, updates, scaling, and maintenance - so you don’t have to think about the technical side.</p>
         </div>
         <div className="card" style={{ borderRadius: 'var(--radius-card)' }}>
           <div style={{ color: 'var(--brand-secondary-500)', marginBottom: '1rem' }}>
             <ShieldCheck size={32} strokeWidth={2} />
           </div>
-          <h3>Your data only</h3>
-          <p style={{ marginTop: '0.8rem' }}>We never co-mingle data or train on your proprietary workflows. Your agency's data remains entirely yours.</p>
+          <h3>Fully Yours.</h3>
+          <p style={{ marginTop: '0.8rem' }}>Everything you need: Context, Agents & Workflows, custom built and managed for you.</p>
         </div>
       </div>
     </div>
