@@ -1,5 +1,5 @@
 import React from 'react';
-import { Server, ShieldCheck, MessageSquare, Github, Figma, Mail, HardDrive, Database, ShoppingCart, CheckCircle, FileText } from 'lucide-react';
+import { Server, ShieldCheck, MessageSquare, Code, PenTool, Mail, HardDrive, Database, ShoppingCart, CheckCircle, FileText } from 'lucide-react';
 import LandingHero from './LandingHero';
 import { HeroHighlight, Highlight } from './hero-highlight';
 import { motion } from 'framer-motion';
@@ -74,10 +74,10 @@ const Hero: React.FC = () => {
               <MessageSquare size={20} color="#E01E5A" /> Slack
             </div>
             <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', color: 'var(--neutral-700)', fontWeight: 600 }}>
-              <Github size={20} color="#181717" /> GitHub
+              <Code size={20} color="#181717" /> GitHub
             </div>
             <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', color: 'var(--neutral-700)', fontWeight: 600 }}>
-              <Figma size={20} color="#F24E1E" /> Figma
+              <PenTool size={20} color="#F24E1E" /> Figma
             </div>
             <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', color: 'var(--neutral-700)', fontWeight: 600 }}>
               <Mail size={20} color="#EA4335" /> Gmail
