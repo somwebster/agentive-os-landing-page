@@ -64,7 +64,7 @@ const CaseStudy = () => {
             {/* Preview Image */}
             <div style={{ flex: 1, width: '100%', height: '100%', overflow: 'hidden', background: '#f8f9fa' }}>
               <img 
-                src="/kommerce-preview.png" 
+                src="/kommerce.png" 
                 alt="Kommerce Landing Page Preview" 
                 style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'top' }}
               />
