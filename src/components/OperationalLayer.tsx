@@ -22,7 +22,7 @@ const OperationalLayer = () => {
               </div>
               <div>
                 <strong style={{ display: 'block', color: 'var(--neutral-900)', fontSize: '1.1rem', marginBottom: '0.25rem' }}>Context System</strong>
-                <span style={{ color: 'var(--neutral-700)', fontSize: '0.95rem', lineHeight: 1.4, display: 'block' }}>Realtime context from your agency knowledge and tools, instantly available for Humans & AI Agents.</span>
+                <span style={{ color: 'var(--neutral-700)', fontSize: '0.95rem', lineHeight: 1.4, display: 'block' }}>Your agency’s knowledge and data — always up-to-date and accessible to humans and AI.</span>
               </div>
             </li>
             <li style={{ display: 'flex', alignItems: 'flex-start', gap: '1rem' }}>
@@ -31,7 +31,7 @@ const OperationalLayer = () => {
               </div>
               <div>
                 <strong style={{ display: 'block', color: 'var(--neutral-900)', fontSize: '1.1rem', marginBottom: '0.25rem' }}>Workflows</strong>
-                <span style={{ color: 'var(--neutral-700)', fontSize: '0.95rem', lineHeight: 1.4, display: 'block' }}>Your strategy and processes baked into AI-powered workflows.</span>
+                <span style={{ color: 'var(--neutral-700)', fontSize: '0.95rem', lineHeight: 1.4, display: 'block' }}>Your processes turned into structured, AI-powered workflows.</span>
               </div>
             </li>
             <li style={{ display: 'flex', alignItems: 'flex-start', gap: '1rem' }}>
@@ -40,7 +40,7 @@ const OperationalLayer = () => {
               </div>
               <div>
                 <strong style={{ display: 'block', color: 'var(--neutral-900)', fontSize: '1.1rem', marginBottom: '0.25rem' }}>Agents</strong>
-                <span style={{ color: 'var(--neutral-700)', fontSize: '0.95rem', lineHeight: 1.4, display: 'block' }}>AI agents that do the execution — connected with your tools, workflows, and powered by your context.</span>
+                <span style={{ color: 'var(--neutral-700)', fontSize: '0.95rem', lineHeight: 1.4, display: 'block' }}>AI agents that execute work — connected to your tools, workflows, and context.</span>
               </div>
             </li>
           </ul>
