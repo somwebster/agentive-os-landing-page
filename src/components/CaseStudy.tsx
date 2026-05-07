@@ -60,13 +60,14 @@ const CaseStudy = () => {
                 kommerceai.org/kommercelanding
               </div>
             </div>
-            <div style={{ flex: 1, display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', padding: '2rem', textAlign: 'center', background: 'var(--neutral-100)', color: 'var(--neutral-600)' }}>
-              <p style={{ marginBottom: '1rem' }}>
-                Preview currently unavailable due to target site security settings (X-Frame-Options).
-              </p>
-              <a href="https://kommerceai.org/kommercelanding" target="_blank" rel="noopener noreferrer" style={{ background: 'var(--brand-primary-500)', color: 'white', padding: '0.5rem 1rem', borderRadius: '8px', textDecoration: 'none', fontWeight: 600 }}>
-                Open Live Site →
-              </a>
+            
+            {/* Preview Image */}
+            <div style={{ flex: 1, width: '100%', height: '100%', overflow: 'hidden', background: '#f8f9fa' }}>
+              <img 
+                src="/kommerce-preview.png" 
+                alt="Kommerce Landing Page Preview" 
+                style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'top' }}
+              />
             </div>
           </div>
         </div>
