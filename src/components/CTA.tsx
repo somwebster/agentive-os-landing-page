@@ -1,20 +1,20 @@
 import React from 'react';
+import GlassButton from './GlassButton';
 
 const CTA = () => {
   return (
-    <section className="cta-section" id="cta">
-      <div className="container">
-        <div className="cta-inner fade-up">
-          <div className="cta-tag">Ready to Transform?</div>
-          <h2 className="cta-title">
-            The Future of Agency is<br />
-            <span className="gradient-text-both">Agent Native</span>
-          </h2>
-          <p className="cta-sub">Built for human-centered agencies ready to move past operational strain. Early access is limited.</p>
-          <div className="cta-actions">
-            <a href="#" className="btn-primary btn-large">Get Early Access</a>
-            <a href="#" className="btn-ghost btn-large">Book a Demo</a>
-          </div>
+    <section className="cta" style={{ marginTop: '6rem', marginBottom: '6rem' }}>
+      <div className="card" style={{ background: 'var(--neutral-100)', textAlign: 'center', padding: '4rem 2rem', borderRadius: 'var(--radius-card)', border: '1px solid var(--color-border-primary)' }}>
+        <h2 style={{ fontSize: '2.5rem', marginBottom: '1rem', color: 'var(--neutral-900)' }}>
+          Ready to Upgrade Your Agency?
+        </h2>
+        <p style={{ fontSize: '1.2rem', marginBottom: '2rem', color: 'var(--neutral-700)', maxWidth: '600px', margin: '0 auto 2rem' }}>
+          Stop duct-taping tools together. Start building a resilient, AI-powered operational system that scales with you.
+        </p>
+        <div style={{ display: 'flex', justifyContent: 'center' }}>
+          <GlassButton onClick={() => console.log('CTA')}>
+            Book a Demo
+          </GlassButton>
         </div>
       </div>
     </section>
