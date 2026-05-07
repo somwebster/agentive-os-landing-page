@@ -1,5 +1,5 @@
 import React from 'react';
-import { Server, ShieldCheck } from 'lucide-react';
+import { Server, ShieldCheck, MessageSquare, Github, Figma, Mail, HardDrive, Database, ShoppingCart, CheckCircle, FileText } from 'lucide-react';
 import LandingHero from './LandingHero';
 import { HeroHighlight, Highlight } from './hero-highlight';
 import { motion } from 'framer-motion';
@@ -30,7 +30,7 @@ const Hero: React.FC = () => {
                 marginBottom: '1rem',
                 display: 'block'
               }}>
-                Built for AI Native Agencies
+                Architecting AI-Native Agencies with
               </div>
               <span style={{ fontSize: '0.65em', fontWeight: 500 }}>
                 The Operating System for
@@ -49,6 +49,56 @@ const Hero: React.FC = () => {
           ctaLabel="Get Started"
           onCtaClick={() => console.log('Book Demo')}
         />
+      </div>
+
+      {/* Logos Card */}
+      <div style={{ maxWidth: '1200px', margin: '3rem auto 2rem', padding: '0 2rem' }}>
+        <div style={{ 
+          background: 'var(--neutral-100)',
+          borderRadius: 'var(--radius-card)',
+          border: '1px solid var(--color-border-primary)',
+          display: 'flex',
+          flexDirection: 'row',
+          flexWrap: 'wrap',
+          alignItems: 'center',
+          padding: '2.5rem'
+        }}>
+          <div style={{ flex: '1 1 250px', paddingRight: '2.5rem', borderRight: '1px solid var(--color-border-primary)', minWidth: '200px' }}>
+            <h3 style={{ fontSize: '1.75rem', fontWeight: 700, color: 'var(--neutral-900)', margin: 0, lineHeight: 1.3 }}>
+              Integrate with <br />
+              <span style={{ color: 'var(--brand-primary-500)' }}>100+ tools</span>
+            </h3>
+          </div>
+          <div style={{ flex: '2 1 500px', paddingLeft: '2.5rem', display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(120px, 1fr))', gap: '2rem', minWidth: '300px' }}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', color: 'var(--neutral-700)', fontWeight: 600 }}>
+              <MessageSquare size={20} color="#E01E5A" /> Slack
+            </div>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', color: 'var(--neutral-700)', fontWeight: 600 }}>
+              <Github size={20} color="#181717" /> GitHub
+            </div>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', color: 'var(--neutral-700)', fontWeight: 600 }}>
+              <Figma size={20} color="#F24E1E" /> Figma
+            </div>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', color: 'var(--neutral-700)', fontWeight: 600 }}>
+              <Mail size={20} color="#EA4335" /> Gmail
+            </div>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', color: 'var(--neutral-700)', fontWeight: 600 }}>
+              <HardDrive size={20} color="#0F9D58" /> Drive
+            </div>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', color: 'var(--neutral-700)', fontWeight: 600 }}>
+              <Database size={20} color="var(--brand-primary-500)" /> HubSpot
+            </div>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', color: 'var(--neutral-700)', fontWeight: 600 }}>
+              <ShoppingCart size={20} color="#95BF47" /> Shopify
+            </div>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', color: 'var(--neutral-700)', fontWeight: 600 }}>
+              <CheckCircle size={20} color="#5E6AD2" /> Linear
+            </div>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', color: 'var(--neutral-700)', fontWeight: 600 }}>
+              <FileText size={20} color="#000000" /> Notion
+            </div>
+          </div>
+        </div>
       </div>
 
       <div className="features-grid relative z-10">
