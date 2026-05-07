@@ -21,8 +21,8 @@ const OperationalLayer = () => {
                 <Database size={24} strokeWidth={2} />
               </div>
               <div>
-                <strong style={{ display: 'block', color: 'var(--neutral-900)', fontSize: '1.1rem', marginBottom: '0.25rem' }}>Unified Data Context</strong>
-                <span style={{ color: 'var(--neutral-700)', fontSize: '0.95rem', lineHeight: 1.4, display: 'block' }}>Your agency's knowledge, instantly accessible by any agent.</span>
+                <strong style={{ display: 'block', color: 'var(--neutral-900)', fontSize: '1.1rem', marginBottom: '0.25rem' }}>Context System</strong>
+                <span style={{ color: 'var(--neutral-700)', fontSize: '0.95rem', lineHeight: 1.4, display: 'block' }}>Realtime context from your agency knowledge and tools, instantly available for Humans & AI Agents.</span>
               </div>
             </li>
             <li style={{ display: 'flex', alignItems: 'flex-start', gap: '1rem' }}>
@@ -30,8 +30,17 @@ const OperationalLayer = () => {
                 <Workflow size={24} strokeWidth={2} />
               </div>
               <div>
-                <strong style={{ display: 'block', color: 'var(--neutral-900)', fontSize: '1.1rem', marginBottom: '0.25rem' }}>Orchestrated Workflows</strong>
-                <span style={{ color: 'var(--neutral-700)', fontSize: '0.95rem', lineHeight: 1.4, display: 'block' }}>Agents work together sequentially or in parallel to deliver results.</span>
+                <strong style={{ display: 'block', color: 'var(--neutral-900)', fontSize: '1.1rem', marginBottom: '0.25rem' }}>Workflows</strong>
+                <span style={{ color: 'var(--neutral-700)', fontSize: '0.95rem', lineHeight: 1.4, display: 'block' }}>Your strategy and processes baked into AI-powered workflows.</span>
+              </div>
+            </li>
+            <li style={{ display: 'flex', alignItems: 'flex-start', gap: '1rem' }}>
+              <div style={{ background: 'var(--neutral-100)', color: 'var(--neutral-700)', padding: '0.75rem', borderRadius: '50%' }}>
+                <Bot size={24} strokeWidth={2} />
+              </div>
+              <div>
+                <strong style={{ display: 'block', color: 'var(--neutral-900)', fontSize: '1.1rem', marginBottom: '0.25rem' }}>Agents</strong>
+                <span style={{ color: 'var(--neutral-700)', fontSize: '0.95rem', lineHeight: 1.4, display: 'block' }}>AI agents that do the execution — connected with your tools, workflows, and powered by your context.</span>
               </div>
             </li>
           </ul>
