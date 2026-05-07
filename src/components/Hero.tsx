@@ -1,7 +1,8 @@
 import React from 'react';
 import { Server, ShieldCheck } from 'lucide-react';
 import LandingHero from './LandingHero';
-import { HeroHighlight, Highlight } from './hero-highlight';
+import { HeroHighlight } from './hero-highlight';
+import { PointerHighlight } from './ui/pointer-highlight';
 import { motion } from 'framer-motion';
 
 const Hero: React.FC = () => {
@@ -15,16 +16,15 @@ const Hero: React.FC = () => {
       <div className="dd-hero-center relative z-10">
         <LandingHero
           title={
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5 }}
-            >
-              The Future is <br />
-              <Highlight className="text-black dark:text-white px-4">
-                Agent Native
-              </Highlight>
-            </motion.div>
+            <div className="flex flex-col items-center">
+              <span>The best way to grow is to</span>
+              <PointerHighlight 
+                rectangleClassName="border-brand-primary-500 dark:border-brand-primary-400 border-2"
+                pointerClassName="text-brand-primary-500"
+              >
+                <span className="px-4 py-1">collaborate</span>
+              </PointerHighlight>
+            </div>
           }
           subtitle="Agentive OS is the operating layer that connects your data, your team, and your AI agents — built specifically for how your agency runs."
           ctaLabel="Get Started"
