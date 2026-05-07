@@ -4,7 +4,7 @@ import { Database, Workflow, Bot, Zap, ArrowRightLeft, HardDrive, MessageSquare,
 const OperationalLayer = () => {
   return (
     <section className="operational-layer" style={{ marginTop: '6rem', marginBottom: '6rem' }}>
-      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '4rem', alignItems: 'center', maxWidth: '1200px', margin: '0 auto', padding: '0 2rem' }}>
+      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '4rem', alignItems: 'flex-start', maxWidth: '1200px', margin: '0 auto', padding: '0 2rem' }}>
         
         {/* Left Side: Text */}
         <div className="text-content">
