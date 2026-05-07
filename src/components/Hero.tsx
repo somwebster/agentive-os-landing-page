@@ -1,9 +1,22 @@
 import React from 'react';
 import { Server, ShieldCheck } from 'lucide-react';
-import Marquee from 'react-fast-marquee';
+import './marquee.css';
 import LandingHero from './LandingHero';
 import { HeroHighlight, Highlight } from './hero-highlight';
 import { motion } from 'framer-motion';
+
+const CSSMarquee = ({ children, direction = 'left', speed = 30 }: any) => {
+  return (
+    <div className="marquee-container">
+      <div className={`marquee-content ${direction === 'right' ? 'reverse' : ''}`} style={{ animationDuration: `${speed}s` }}>
+        {children}
+      </div>
+      <div className={`marquee-content ${direction === 'right' ? 'reverse' : ''}`} aria-hidden="true" style={{ animationDuration: `${speed}s` }}>
+        {children}
+      </div>
+    </div>
+  );
+};
 
 const Hero: React.FC = () => {
   return (
@@ -75,7 +88,7 @@ const Hero: React.FC = () => {
           <div style={{ flex: '3 1 500px', display: 'flex', flexDirection: 'column', gap: '1.5rem', minWidth: '250px', borderLeft: '1px solid rgba(0,0,0,0.05)', paddingLeft: '2rem', marginLeft: '-2rem', overflow: 'hidden' }}>
             
             {/* Row 1 */}
-            <Marquee speed={30} gradient={true} gradientColor="white" gradientWidth={40} direction="left">
+            <CSSMarquee speed={30} direction="left">
               <div style={{ display: 'flex', gap: '3rem', paddingRight: '3rem' }}>
                 <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', color: 'var(--neutral-700)', fontWeight: 600, fontSize: '0.9rem' }}><img src="https://cdn.simpleicons.org/github/181717" width="20" height="20" alt="GitHub" /> GitHub</div>
                 <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', color: 'var(--neutral-700)', fontWeight: 600, fontSize: '0.9rem' }}><img src="https://cdn.simpleicons.org/google/4285F4" width="20" height="20" alt="Google" /> Google</div>
@@ -86,10 +99,10 @@ const Hero: React.FC = () => {
                 <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', color: 'var(--neutral-700)', fontWeight: 600, fontSize: '0.9rem' }}><img src="https://cdn.simpleicons.org/discord/5865F2" width="20" height="20" alt="Discord" /> Discord</div>
                 <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', color: 'var(--neutral-700)', fontWeight: 600, fontSize: '0.9rem' }}><img src="https://cdn.simpleicons.org/netlify/00C7B7" width="20" height="20" alt="Netlify" /> Netlify</div>
               </div>
-            </Marquee>
+            </CSSMarquee>
 
             {/* Row 2 */}
-            <Marquee speed={25} gradient={true} gradientColor="white" gradientWidth={40} direction="right">
+            <CSSMarquee speed={25} direction="right">
               <div style={{ display: 'flex', gap: '3rem', paddingRight: '3rem' }}>
                 <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', color: 'var(--neutral-700)', fontWeight: 600, fontSize: '0.9rem' }}><img src="https://cdn.simpleicons.org/stripe/008CDD" width="20" height="20" alt="Stripe" /> Stripe</div>
                 <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', color: 'var(--neutral-700)', fontWeight: 600, fontSize: '0.9rem' }}><img src="https://cdn.simpleicons.org/trello/0052CC" width="20" height="20" alt="Trello" /> Trello</div>
@@ -100,10 +113,10 @@ const Hero: React.FC = () => {
                 <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', color: 'var(--neutral-700)', fontWeight: 600, fontSize: '0.9rem' }}><img src="https://cdn.simpleicons.org/gmail/EA4335" width="20" height="20" alt="Gmail" /> Gmail</div>
                 <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', color: 'var(--neutral-700)', fontWeight: 600, fontSize: '0.9rem' }}><img src="https://cdn.simpleicons.org/hubspot/FF7A59" width="20" height="20" alt="HubSpot" /> HubSpot</div>
               </div>
-            </Marquee>
+            </CSSMarquee>
 
             {/* Row 3 */}
-            <Marquee speed={35} gradient={true} gradientColor="white" gradientWidth={40} direction="left">
+            <CSSMarquee speed={35} direction="left">
               <div style={{ display: 'flex', gap: '3rem', paddingRight: '3rem' }}>
                 <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', color: 'var(--neutral-700)', fontWeight: 600, fontSize: '0.9rem' }}><img src="https://cdn.simpleicons.org/zendesk/03363D" width="20" height="20" alt="Zendesk" /> Zendesk</div>
                 <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', color: 'var(--neutral-700)', fontWeight: 600, fontSize: '0.9rem' }}><img src="https://cdn.simpleicons.org/jira/0052CC" width="20" height="20" alt="Jira" /> Jira</div>
@@ -114,7 +127,7 @@ const Hero: React.FC = () => {
                 <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', color: 'var(--neutral-700)', fontWeight: 600, fontSize: '0.9rem' }}><img src="https://cdn.simpleicons.org/zoom/2D8CFF" width="20" height="20" alt="Zoom" /> Zoom</div>
                 <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', color: 'var(--neutral-700)', fontWeight: 600, fontSize: '0.9rem' }}><img src="https://cdn.simpleicons.org/googledrive/0F9D58" width="20" height="20" alt="Drive" /> Drive</div>
               </div>
-            </Marquee>
+            </CSSMarquee>
 
           </div>
         </div>
