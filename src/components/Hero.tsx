@@ -85,7 +85,7 @@ const Hero: React.FC = () => {
             </h3>
           </div>
           
-          <div style={{ flex: '3 1 500px', display: 'flex', flexDirection: 'column', gap: '1.5rem', minWidth: '250px', borderLeft: '1px solid rgba(0,0,0,0.05)', paddingLeft: '2rem', marginLeft: '-2rem', overflow: 'hidden' }}>
+          <div style={{ flex: '3 1 500px', display: 'flex', flexDirection: 'column', gap: '1.5rem', minWidth: '250px', overflow: 'hidden' }}>
             
             {/* Row 1 */}
             <CSSMarquee speed={30} direction="left">
