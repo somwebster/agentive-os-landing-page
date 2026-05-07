@@ -1,10 +1,5 @@
 import React from 'react';
 import { Server, ShieldCheck } from 'lucide-react';
-import { 
-  SiGithub, SiFigma, SiGmail, SiGoogledrive, SiHubspot, SiShopify, SiLinear, SiNotion,
-  SiStripe, SiTrello, SiAsana, SiZoom, SiJira, SiDropbox, SiAirtable, SiZendesk, 
-  SiDiscord, SiGitlab, SiMailchimp, SiZapier, SiWebflow, SiDatadog, SiGoogle, SiNetlify
-} from '@icons-pack/react-simple-icons';
 import Marquee from 'react-fast-marquee';
 import LandingHero from './LandingHero';
 import { HeroHighlight, Highlight } from './hero-highlight';
@@ -82,42 +77,42 @@ const Hero: React.FC = () => {
             {/* Row 1 */}
             <Marquee speed={30} gradient={true} gradientColor="white" gradientWidth={40} direction="left">
               <div style={{ display: 'flex', gap: '3rem', paddingRight: '3rem' }}>
-                <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', color: 'var(--neutral-700)', fontWeight: 600, fontSize: '0.9rem' }}><SiGithub size={20} color="#181717" /> GitHub</div>
-                <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', color: 'var(--neutral-700)', fontWeight: 600, fontSize: '0.9rem' }}><SiGoogle size={20} color="#4285F4" /> Google</div>
-                <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', color: 'var(--neutral-700)', fontWeight: 600, fontSize: '0.9rem' }}><SiFigma size={20} color="#F24E1E" /> Figma</div>
-                <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', color: 'var(--neutral-700)', fontWeight: 600, fontSize: '0.9rem' }}><SiNotion size={20} color="#000000" /> Notion</div>
-                <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', color: 'var(--neutral-700)', fontWeight: 600, fontSize: '0.9rem' }}><SiShopify size={20} color="#95BF47" /> Shopify</div>
-                <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', color: 'var(--neutral-700)', fontWeight: 600, fontSize: '0.9rem' }}><SiLinear size={20} color="#5E6AD2" /> Linear</div>
-                <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', color: 'var(--neutral-700)', fontWeight: 600, fontSize: '0.9rem' }}><SiDiscord size={20} color="#5865F2" /> Discord</div>
-                <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', color: 'var(--neutral-700)', fontWeight: 600, fontSize: '0.9rem' }}><SiNetlify size={20} color="#00C7B7" /> Netlify</div>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', color: 'var(--neutral-700)', fontWeight: 600, fontSize: '0.9rem' }}><img src="https://cdn.simpleicons.org/github/181717" width="20" height="20" alt="GitHub" /> GitHub</div>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', color: 'var(--neutral-700)', fontWeight: 600, fontSize: '0.9rem' }}><img src="https://cdn.simpleicons.org/google/4285F4" width="20" height="20" alt="Google" /> Google</div>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', color: 'var(--neutral-700)', fontWeight: 600, fontSize: '0.9rem' }}><img src="https://cdn.simpleicons.org/figma/F24E1E" width="20" height="20" alt="Figma" /> Figma</div>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', color: 'var(--neutral-700)', fontWeight: 600, fontSize: '0.9rem' }}><img src="https://cdn.simpleicons.org/notion/000000" width="20" height="20" alt="Notion" /> Notion</div>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', color: 'var(--neutral-700)', fontWeight: 600, fontSize: '0.9rem' }}><img src="https://cdn.simpleicons.org/shopify/95BF47" width="20" height="20" alt="Shopify" /> Shopify</div>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', color: 'var(--neutral-700)', fontWeight: 600, fontSize: '0.9rem' }}><img src="https://cdn.simpleicons.org/linear/5E6AD2" width="20" height="20" alt="Linear" /> Linear</div>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', color: 'var(--neutral-700)', fontWeight: 600, fontSize: '0.9rem' }}><img src="https://cdn.simpleicons.org/discord/5865F2" width="20" height="20" alt="Discord" /> Discord</div>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', color: 'var(--neutral-700)', fontWeight: 600, fontSize: '0.9rem' }}><img src="https://cdn.simpleicons.org/netlify/00C7B7" width="20" height="20" alt="Netlify" /> Netlify</div>
               </div>
             </Marquee>
 
             {/* Row 2 */}
             <Marquee speed={25} gradient={true} gradientColor="white" gradientWidth={40} direction="right">
               <div style={{ display: 'flex', gap: '3rem', paddingRight: '3rem' }}>
-                <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', color: 'var(--neutral-700)', fontWeight: 600, fontSize: '0.9rem' }}><SiStripe size={20} color="#008CDD" /> Stripe</div>
-                <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', color: 'var(--neutral-700)', fontWeight: 600, fontSize: '0.9rem' }}><SiTrello size={20} color="#0052CC" /> Trello</div>
-                <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', color: 'var(--neutral-700)', fontWeight: 600, fontSize: '0.9rem' }}><SiAsana size={20} color="#273347" /> Asana</div>
-                <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', color: 'var(--neutral-700)', fontWeight: 600, fontSize: '0.9rem' }}><SiAirtable size={20} color="#18BFFF" /> Airtable</div>
-                <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', color: 'var(--neutral-700)', fontWeight: 600, fontSize: '0.9rem' }}><SiZapier size={20} color="#FF4A00" /> Zapier</div>
-                <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', color: 'var(--neutral-700)', fontWeight: 600, fontSize: '0.9rem' }}><SiDatadog size={20} color="#632CA6" /> Datadog</div>
-                <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', color: 'var(--neutral-700)', fontWeight: 600, fontSize: '0.9rem' }}><SiGmail size={20} color="#EA4335" /> Gmail</div>
-                <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', color: 'var(--neutral-700)', fontWeight: 600, fontSize: '0.9rem' }}><SiHubspot size={20} color="#FF7A59" /> HubSpot</div>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', color: 'var(--neutral-700)', fontWeight: 600, fontSize: '0.9rem' }}><img src="https://cdn.simpleicons.org/stripe/008CDD" width="20" height="20" alt="Stripe" /> Stripe</div>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', color: 'var(--neutral-700)', fontWeight: 600, fontSize: '0.9rem' }}><img src="https://cdn.simpleicons.org/trello/0052CC" width="20" height="20" alt="Trello" /> Trello</div>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', color: 'var(--neutral-700)', fontWeight: 600, fontSize: '0.9rem' }}><img src="https://cdn.simpleicons.org/asana/273347" width="20" height="20" alt="Asana" /> Asana</div>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', color: 'var(--neutral-700)', fontWeight: 600, fontSize: '0.9rem' }}><img src="https://cdn.simpleicons.org/airtable/18BFFF" width="20" height="20" alt="Airtable" /> Airtable</div>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', color: 'var(--neutral-700)', fontWeight: 600, fontSize: '0.9rem' }}><img src="https://cdn.simpleicons.org/zapier/FF4A00" width="20" height="20" alt="Zapier" /> Zapier</div>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', color: 'var(--neutral-700)', fontWeight: 600, fontSize: '0.9rem' }}><img src="https://cdn.simpleicons.org/datadog/632CA6" width="20" height="20" alt="Datadog" /> Datadog</div>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', color: 'var(--neutral-700)', fontWeight: 600, fontSize: '0.9rem' }}><img src="https://cdn.simpleicons.org/gmail/EA4335" width="20" height="20" alt="Gmail" /> Gmail</div>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', color: 'var(--neutral-700)', fontWeight: 600, fontSize: '0.9rem' }}><img src="https://cdn.simpleicons.org/hubspot/FF7A59" width="20" height="20" alt="HubSpot" /> HubSpot</div>
               </div>
             </Marquee>
 
             {/* Row 3 */}
             <Marquee speed={35} gradient={true} gradientColor="white" gradientWidth={40} direction="left">
               <div style={{ display: 'flex', gap: '3rem', paddingRight: '3rem' }}>
-                <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', color: 'var(--neutral-700)', fontWeight: 600, fontSize: '0.9rem' }}><SiZendesk size={20} color="#03363D" /> Zendesk</div>
-                <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', color: 'var(--neutral-700)', fontWeight: 600, fontSize: '0.9rem' }}><SiJira size={20} color="#0052CC" /> Jira</div>
-                <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', color: 'var(--neutral-700)', fontWeight: 600, fontSize: '0.9rem' }}><SiDropbox size={20} color="#0061FF" /> Dropbox</div>
-                <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', color: 'var(--neutral-700)', fontWeight: 600, fontSize: '0.9rem' }}><SiWebflow size={20} color="#4353FF" /> Webflow</div>
-                <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', color: 'var(--neutral-700)', fontWeight: 600, fontSize: '0.9rem' }}><SiGitlab size={20} color="#FCA121" /> GitLab</div>
-                <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', color: 'var(--neutral-700)', fontWeight: 600, fontSize: '0.9rem' }}><SiMailchimp size={20} color="#FFE01B" /> Mailchimp</div>
-                <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', color: 'var(--neutral-700)', fontWeight: 600, fontSize: '0.9rem' }}><SiZoom size={20} color="#2D8CFF" /> Zoom</div>
-                <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', color: 'var(--neutral-700)', fontWeight: 600, fontSize: '0.9rem' }}><SiGoogledrive size={20} color="#0F9D58" /> Drive</div>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', color: 'var(--neutral-700)', fontWeight: 600, fontSize: '0.9rem' }}><img src="https://cdn.simpleicons.org/zendesk/03363D" width="20" height="20" alt="Zendesk" /> Zendesk</div>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', color: 'var(--neutral-700)', fontWeight: 600, fontSize: '0.9rem' }}><img src="https://cdn.simpleicons.org/jira/0052CC" width="20" height="20" alt="Jira" /> Jira</div>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', color: 'var(--neutral-700)', fontWeight: 600, fontSize: '0.9rem' }}><img src="https://cdn.simpleicons.org/dropbox/0061FF" width="20" height="20" alt="Dropbox" /> Dropbox</div>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', color: 'var(--neutral-700)', fontWeight: 600, fontSize: '0.9rem' }}><img src="https://cdn.simpleicons.org/webflow/4353FF" width="20" height="20" alt="Webflow" /> Webflow</div>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', color: 'var(--neutral-700)', fontWeight: 600, fontSize: '0.9rem' }}><img src="https://cdn.simpleicons.org/gitlab/FCA121" width="20" height="20" alt="GitLab" /> GitLab</div>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', color: 'var(--neutral-700)', fontWeight: 600, fontSize: '0.9rem' }}><img src="https://cdn.simpleicons.org/mailchimp/FFE01B" width="20" height="20" alt="Mailchimp" /> Mailchimp</div>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', color: 'var(--neutral-700)', fontWeight: 600, fontSize: '0.9rem' }}><img src="https://cdn.simpleicons.org/zoom/2D8CFF" width="20" height="20" alt="Zoom" /> Zoom</div>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', color: 'var(--neutral-700)', fontWeight: 600, fontSize: '0.9rem' }}><img src="https://cdn.simpleicons.org/googledrive/0F9D58" width="20" height="20" alt="Drive" /> Drive</div>
               </div>
             </Marquee>
 
