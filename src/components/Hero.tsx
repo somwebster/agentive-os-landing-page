@@ -56,9 +56,7 @@ const Hero: React.FC = () => {
         
         {/* Logos Card (Spans full width on desktop) */}
         <div className="bento-logos-card card" style={{ 
-          background: 'var(--neutral-100)',
           borderRadius: 'var(--radius-card)',
-          border: '1px solid var(--color-border-primary)',
           display: 'flex',
           flexDirection: 'row',
           flexWrap: 'wrap',
