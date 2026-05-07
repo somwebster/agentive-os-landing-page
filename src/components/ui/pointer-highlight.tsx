@@ -1,5 +1,5 @@
 "use client";
-import { cn } from "../../lib/utils";
+import { cn } from "@/lib/utils";
 import { motion } from "motion/react";
 import { useRef, useEffect, useState } from "react";
 
@@ -43,10 +43,10 @@ export function PointerHighlight({
 
   return (
     <div
-      className={cn("relative w-fit inline-block", containerClassName)}
+      className={cn("relative w-fit", containerClassName)}
       ref={containerRef}
     >
-      <div className="relative z-10">{children}</div>
+      {children}
       {dimensions.width > 0 && dimensions.height > 0 && (
         <motion.div
           className="pointer-events-none absolute inset-0 z-0"
