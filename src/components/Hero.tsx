@@ -7,29 +7,32 @@ import { motion } from 'framer-motion';
 const Hero: React.FC = () => {
   return (
     <div className="dd-hero-content relative overflow-hidden">
-      <HeroHighlight containerClassName="h-full py-20">
-        <div className="dd-hero-center">
-          <LandingHero
-            title={
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5 }}
-              >
-                The Future is <br />
-                <Highlight className="text-black dark:text-white px-4">
-                  Agent Native
-                </Highlight>
-              </motion.div>
-            }
-            subtitle="Agentive OS is the operating layer that connects your data, your team, and your AI agents — built specifically for how your agency runs."
-            ctaLabel="Get Started"
-            onCtaClick={() => console.log('Book Demo')}
-          />
-        </div>
-      </HeroHighlight>
+      {/* Pointer Highlight Effect as Background */}
+      <div className="absolute inset-0 z-0">
+        <HeroHighlight containerClassName="h-full w-full" />
+      </div>
 
-      <div className="features-grid">
+      <div className="dd-hero-center relative z-10">
+        <LandingHero
+          title={
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5 }}
+            >
+              The Future is <br />
+              <Highlight className="text-black dark:text-white px-4">
+                Agent Native
+              </Highlight>
+            </motion.div>
+          }
+          subtitle="Agentive OS is the operating layer that connects your data, your team, and your AI agents — built specifically for how your agency runs."
+          ctaLabel="Get Started"
+          onCtaClick={() => console.log('Book Demo')}
+        />
+      </div>
+
+      <div className="features-grid relative z-10">
         <div className="card" style={{ borderRadius: 'var(--radius-card)' }}>
           <div style={{ color: 'var(--brand-primary-500)', marginBottom: '1rem' }}>
             <Server size={32} strokeWidth={2} />
