@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Google+Sans:ital,opsz,wght@0,17..18,400..700;1,17..18,400..700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&family=Google+Sans:ital,opsz,wght@0,17..18,400..700;1,17..18,400..700&display=swap');
 
 :root {
   /* =========================================
@@ -381,10 +381,11 @@ body {
 }
 
 .section-heading {
-  font-size: 2.5rem;
+  font-size: clamp(2rem, 8vw, 3.5rem);
   margin-top: 0.5rem;
   margin-bottom: 2rem;
-  line-height: 1.2;
+  line-height: 1.1;
+  word-break: break-word;
 }
 
 
@@ -1464,7 +1465,7 @@ h1.hero-title {
     padding-bottom: 2rem;
     width: 100%;
     max-width: 100vw;
-    overflow: visible;
+    overflow-x: hidden;
   }
 
   .dd-hero-text {
@@ -1540,8 +1541,8 @@ h1.hero-title {
 
 @media (max-width: 480px) {
   .dd-hero-title {
-    font-size: 2.5rem !important;
-    padding: 0 0.5rem;
+    font-size: clamp(3rem, 12vw, 4rem) !important;
+    padding: 0 0.25rem;
   }
 
   .dd-hero-sub {
@@ -2355,7 +2356,7 @@ h1.hero-title {
 /* Title */
 .dd-mini-popover-title {
   padding: 0 1rem 0.5rem;
-  font-size: 0.7rem;
+  font-size: clamp(0.6rem, 2vw, 0.7rem);
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.05em;
@@ -2658,7 +2659,7 @@ h1.hero-title {
   gap: 1.25rem;
   max-width: 1200px;
   margin: 2rem auto;
-  padding: 0 2rem;
+  padding: 0 1rem;
   position: relative;
   z-index: 10;
 }
