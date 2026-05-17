@@ -50,3 +50,76 @@
   right: 0;
   background: linear-gradient(to left, white, transparent);
 }
+
+[data-theme='dark'] .marquee-container::before {
+  background: linear-gradient(to right, var(--color-surface-primary), transparent);
+}
+
+[data-theme='dark'] .marquee-container::after {
+  background: linear-gradient(to left, var(--color-surface-primary), transparent);
+}
+
+/* Vertical Marquee */
+.marquee-vertical-container {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  position: relative;
+  height: 200px;
+  width: 100%;
+}
+
+.marquee-vertical-content {
+  display: flex;
+  flex-direction: column;
+  flex-shrink: 0;
+  align-items: stretch;
+  animation: scroll-up 30s linear infinite;
+  padding-bottom: 0.75rem; /* Match gap */
+  gap: 0.75rem;
+}
+
+.marquee-vertical-content.reverse {
+  animation: scroll-down 30s linear infinite;
+}
+
+@keyframes scroll-up {
+  0% { transform: translateY(0); }
+  100% { transform: translateY(-100%); }
+}
+
+@keyframes scroll-down {
+  0% { transform: translateY(-100%); }
+  100% { transform: translateY(0); }
+}
+
+/* Gradients for fading effect - Vertical */
+.marquee-vertical-container::before,
+.marquee-vertical-container::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 30px;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.marquee-vertical-container::before {
+  top: 0;
+  background: linear-gradient(to bottom, white, transparent);
+}
+
+.marquee-vertical-container::after {
+  bottom: 0;
+  background: linear-gradient(to top, white, transparent);
+}
+
+/* Notice we use the inner card background color for fading here */
+[data-theme='dark'] .marquee-vertical-container::before {
+  background: linear-gradient(to bottom, #110906, transparent);
+}
+
+[data-theme='dark'] .marquee-vertical-container::after {
+  background: linear-gradient(to top, #110906, transparent);
+}

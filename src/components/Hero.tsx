@@ -20,7 +20,7 @@ const CSSMarquee = ({ children, direction = 'left', speed = 30 }: any) => {
 
 const Hero: React.FC = () => {
   return (
-    <div className="dd-hero-content relative overflow-hidden">
+    <div className="dd-hero-content relative">
       {/* Pointer Highlight Effect as Background */}
       <div className="absolute inset-0 z-0">
         <HeroHighlight containerClassName="h-full w-full" />
@@ -38,7 +38,7 @@ const Hero: React.FC = () => {
               <div style={{
                 fontSize: '0.38em',
                 fontWeight: 500,
-                color: 'var(--brand-primary-500)',
+                color: 'var(--color-text-heading)',
                 marginBottom: '0.8rem',
                 display: 'block',
                 fontFamily: "'Caveat', cursive",
@@ -51,16 +51,16 @@ const Hero: React.FC = () => {
                     left: 0,
                     width: '100%',
                     height: '40%',
-                    background: 'rgba(247, 98, 30, 0.15)',
+                    background: 'var(--color-highlighter)',
                     zIndex: -1,
                     transform: 'rotate(-1deg) skewX(-10deg)',
                     borderRadius: '2px'
                   }} />
-                  Transform Your Agency with
+                  Build AI-Native Agencies
                 </span>
               </div>
-              <span style={{ fontSize: '0.65em', fontWeight: 500, display: 'block', whiteSpace: 'normal' }}>
-                The Operating System for
+              <span style={{ fontSize: '0.8em', fontWeight: 500, display: 'block', whiteSpace: 'normal', lineHeight: 1.1, marginBottom: '0.2rem' }}>
+                Operating System for
               </span>
               <span style={{
                 background: 'linear-gradient(90deg, #F7621E 0%, #a855f7 100%)',
@@ -68,7 +68,9 @@ const Hero: React.FC = () => {
                 WebkitTextFillColor: 'transparent',
                 fontWeight: 700,
                 display: 'block',
-                fontSize: '1em'
+                fontSize: 'clamp(2.5rem, 12vw, 1.5em)',
+                whiteSpace: 'nowrap',
+                lineHeight: 1.1
               }}>
                 Humans + AI
               </span>
@@ -94,19 +96,19 @@ const Hero: React.FC = () => {
           minWidth: 0
         }}>
           <div style={{ flex: '1 1 200px', minWidth: '0', alignSelf: 'flex-start' }}>
-            <h3 style={{ 
-              fontWeight: 700, 
-              color: 'var(--neutral-900)', 
-              margin: 0, 
-              lineHeight: 1.2, 
-              display: 'flex', 
-              flexDirection: 'column', 
+            <h3 style={{
+              fontWeight: 700,
+              color: 'var(--neutral-900)',
+              margin: 0,
+              lineHeight: 1.2,
+              display: 'flex',
+              flexDirection: 'column',
               gap: '0.25rem',
               whiteSpace: 'normal',
               wordBreak: 'break-word'
             }}>
-              <span style={{ fontSize: 'clamp(0.85rem, 4vw, 1rem)', color: 'var(--neutral-700)', fontWeight: 600 }}>Build Context & power your Agents </span>
-              <span style={{ fontSize: 'clamp(1.4rem, 6vw, 2.2rem)', color: 'var(--brand-primary-500)' }}>with 100+ Integrations</span>
+              <span style={{ fontSize: 'clamp(0.75rem, 4vw, 1rem)', color: 'var(--neutral-700)', fontWeight: 550 }}>Build Agents, workflows & Knowledge Graphs with</span>
+              <span style={{ fontSize: 'clamp(1.4rem, 6vw, 2.2rem)', color: 'var(--brand-primary-500)' }}>100+ Integrations</span>
             </h3>
           </div>
 
@@ -150,7 +152,7 @@ const Hero: React.FC = () => {
                 <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', color: 'var(--neutral-700)', fontWeight: 600, fontSize: '0.9rem' }}><img src="https://cdn.simpleicons.org/googleads/F4B400" width="20" height="20" alt="Google Ads" /> Google Ads</div>
                 <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', color: 'var(--neutral-700)', fontWeight: 600, fontSize: '0.9rem' }}><img src="https://cdn.simpleicons.org/googleanalytics/E37400" width="20" height="20" alt="Google Analytics" /> Analytics</div>
                 <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', color: 'var(--neutral-700)', fontWeight: 600, fontSize: '0.9rem' }}><img src="https://cdn.simpleicons.org/meta/0468FF" width="20" height="20" alt="Meta" /> Meta</div>
-                <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', color: 'var(--neutral-700)', fontWeight: 600, fontSize: '0.9rem' }}><img src="https://cdn.simpleicons.org/meta/0468FF" width="20" height="20" alt="Meta Ads" /> Meta Ads</div>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', color: 'var(--neutral-700)', fontWeight: 600, fontSize: '0.9rem' }}><img src="https://cdn.simpleicons.org/stripe/635BFF" width="20" height="20" alt="Stripe" /> Stripe</div>
                 <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', color: 'var(--neutral-700)', fontWeight: 600, fontSize: '0.9rem' }}><img src="https://cdn.simpleicons.org/tiktok/000000" width="20" height="20" alt="TikTok" /> TikTok</div>
                 <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', color: 'var(--neutral-700)', fontWeight: 600, fontSize: '0.9rem' }}><img src="https://cdn.simpleicons.org/shopify/95BF47" width="20" height="20" alt="Shopify" /> Shopify</div>
                 <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', color: 'var(--neutral-700)', fontWeight: 600, fontSize: '0.9rem' }}><img src="https://cdn.simpleicons.org/github/181717" width="20" height="20" alt="GitHub" /> GitHub</div>
@@ -161,12 +163,11 @@ const Hero: React.FC = () => {
           </div>
         </div>
         {/* Sub-cards row */}
-        <div style={{
+        <div className="bento-subcards-row" style={{
           display: 'grid',
           gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 300px), 1fr))',
           gap: '1.25rem',
           width: '100%',
-          gridColumn: 'span 2',
           minWidth: 0
         }}>
           {/* Card 1 */}
@@ -185,7 +186,7 @@ const Hero: React.FC = () => {
               <h3 style={{ fontSize: '1.5rem', fontWeight: 700, color: 'var(--neutral-900)', margin: 0 }}>Fully Managed.</h3>
             </div>
             <p style={{ color: 'var(--neutral-700)', lineHeight: 1.6, margin: 0 }}>
-              We handle infrastructure, updates, scaling, and maintenance - so you don't have to think about the technical side.
+              We handle infrastructure, updates, scaling, and maintenance - so you can focus more on scaling your operations not the tech.
             </p>
           </div>
 
@@ -205,7 +206,7 @@ const Hero: React.FC = () => {
               <h3 style={{ fontSize: '1.5rem', fontWeight: 700, color: 'var(--neutral-900)', margin: 0 }}>Fully Yours.</h3>
             </div>
             <p style={{ color: 'var(--neutral-700)', lineHeight: 1.6, margin: 0 }}>
-              Everything you need: Context, Agents & Workflows, custom built and managed for you.
+              Everything you need to operate with AI - Agents, workflows and knowledge graphs custom built and managed for you.
             </p>
           </div>
         </div>

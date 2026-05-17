@@ -10,12 +10,17 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@icons-pack/react-simple-icons": "^13.13.0",
     "@tabler/icons-react": "^3.41.1",
     "@tailwindcss/vite": "^4.0.0",
     "class-variance-authority": "^0.7.1",
+    "cytoscape": "^3.33.3",
     "mini-svg-data-uri": "^1.4.4",
     "react": "^19.0.0",
-    "react-dom": "^19.0.0"
+    "react-cytoscapejs": "^2.0.0",
+    "react-dom": "^19.0.0",
+    "reactflow": "^11.11.4",
+    "reagraph": "^4.30.8"
   },
   "devDependencies": {
     "@eslint/js": "^10.0.1",
