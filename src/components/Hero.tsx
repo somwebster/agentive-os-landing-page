@@ -76,8 +76,8 @@ const Hero: React.FC = () => {
               </span>
             </motion.div>
           }
-          ctaLabel="Get Started"
-          onCtaClick={() => console.log('Book Demo')}
+          ctaLabel="Book a Demo"
+          onCtaClick={() => window.open('https://calendly.com/som-official01/30min', '_blank')}
         />
       </div>
 

@@ -14,7 +14,8 @@ import {
   ChevronLeft,
   ChevronRight,
   Menu,
-  Search
+  Search,
+  HelpCircle
 } from 'lucide-react';
 import Hero from './components/Hero';
 import Problem from './components/Problem';
@@ -25,6 +26,7 @@ import CTA from './components/CTA';
 import FAQ from './components/FAQ';
 import ComponentLibrary, { GROUPS, COMPONENTS } from './components/ComponentLibrary';
 import AgentiveSDK, { SDK_GROUPS } from './components/AgentiveSDK';
+import Footer from './components/Footer';
 import { ShaderBackground } from './components/ShaderBackground';
 
 function App() {
@@ -60,12 +62,6 @@ function App() {
         </div>
         <span>Component Library</span>
       </button>
-      <a href="#" className="nav-item">
-        <div className="nav-icon">
-          <Cpu size={20} strokeWidth={2} />
-        </div>
-        <span>MCP</span>
-      </a>
     </>
   );
 
@@ -190,18 +186,22 @@ function App() {
                 <div className="nav-icon"><Home size={20} strokeWidth={2} /></div>
                 <span>Home</span>
               </button>
-              <a href="#" className="nav-item">
+              <button onClick={() => document.querySelector('.operational-layer')?.scrollIntoView({ behavior: 'smooth', block: 'start' })} className="nav-item" style={{ border: 'none', background: 'none', cursor: 'pointer', width: '100%', textAlign: 'left' }}>
                 <div className="nav-icon"><Briefcase size={20} strokeWidth={2} /></div>
-                <span>Products & Services</span>
-              </a>
+                <span>AI Native OS</span>
+              </button>
               <a href="#" className="nav-item">
                 <div className="nav-icon"><FileText size={20} strokeWidth={2} /></div>
                 <span>Case Studies</span>
               </a>
-              <a href="#" className="nav-item">
+              <button onClick={() => document.querySelector('.flow')?.scrollIntoView({ behavior: 'smooth', block: 'start' })} className="nav-item" style={{ border: 'none', background: 'none', cursor: 'pointer', width: '100%', textAlign: 'left' }}>
                 <div className="nav-icon"><Tag size={20} strokeWidth={2} /></div>
-                <span>Pricing</span>
-              </a>
+                <span>Our Services</span>
+              </button>
+              <button onClick={() => document.querySelector('.faq-section')?.scrollIntoView({ behavior: 'smooth', block: 'start' })} className="nav-item" style={{ border: 'none', background: 'none', cursor: 'pointer', width: '100%', textAlign: 'left' }}>
+                <div className="nav-icon"><HelpCircle size={20} strokeWidth={2} /></div>
+                <span>FAQ</span>
+              </button>
               <div className="builders-desktop-only">
                 {!isCollapsed && (
                   <div className="nav-group-label" style={{ marginTop: '1.5rem', marginBottom: '0.5rem', paddingLeft: '0.75rem', fontSize: '0.75rem', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.05em', color: 'var(--neutral-700)' }}>
@@ -215,35 +215,6 @@ function App() {
           )}
 
           <div className="sidebar-footer">
-            <a href="#" className="btn btn-purple" style={{
-              margin: '0.5rem 0.75rem', 
-              padding: isCollapsed ? '0.75rem' : '0.75rem 1.5rem',
-              display: 'flex', 
-              justifyContent: 'center', 
-              alignItems: 'center',
-              gap: '0.5rem',
-              borderRadius: 'var(--radius-button)'
-            }}>
-              <LogIn size={18} strokeWidth={2} />
-              {!isCollapsed && <span>Log in</span>}
-            </a>
-            
-            <a href="#" className="btn" style={{ 
-              margin: '0.5rem 0.75rem', 
-              padding: isCollapsed ? '0.75rem' : '0.75rem 1.5rem',
-              display: 'flex', 
-              justifyContent: 'center', 
-              alignItems: 'center',
-              gap: '0.5rem',
-              border: '1px solid var(--color-border-primary)',
-              background: 'transparent',
-              color: 'var(--color-text-heading)',
-              borderRadius: 'var(--radius-button)'
-            }}>
-              <UserPlus size={18} strokeWidth={2} />
-              {!isCollapsed && <span>Sign up</span>}
-            </a>
-
             <button onClick={toggleSidebar} className="collapse-toggle" title="Toggle Sidebar">
               <div className="nav-icon">
                 {isCollapsed ? <ChevronRight size={20} strokeWidth={2} /> : <ChevronLeft size={20} strokeWidth={2} />}
@@ -274,12 +245,16 @@ function App() {
 
         <div className={`main-content${(currentPage === 'components' || currentPage === 'sdk') ? ' comp-library-mode' : ''}`}>
           {currentPage === 'components' ? (
-            <div className="page-main comp-library-scroll">
-              <ComponentLibrary activeId={compActiveId} />
+            <div style={{ flex: 1, minHeight: 0, display: 'flex', flexDirection: 'column' }}>
+              <div className="page-main comp-library-scroll" style={{ flex: 1, minHeight: 0 }}>
+                <ComponentLibrary activeId={compActiveId} />
+              </div>
+              <Footer compact />
             </div>
           ) : currentPage === 'sdk' ? (
             <div style={{ flex: 1, minHeight: 0, display: 'flex', flexDirection: 'column', paddingLeft: '1rem' }}>
               <AgentiveSDK activeId={sdkActiveId} />
+              <Footer compact />
             </div>
           ) : (
             <main className="page-main">
@@ -294,6 +269,7 @@ function App() {
           )}
         </div>
       </div>
+      {currentPage === 'home' && <Footer />}
     </div>
   );
 }

@@ -52,7 +52,7 @@ const FAQ = () => {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
 
   return (
-    <section style={{ marginTop: '6rem', marginBottom: '3rem' }}>
+    <section className="faq-section" style={{ marginTop: '6rem', marginBottom: '3rem' }}>
       <div style={{ maxWidth: '1200px', margin: '0 auto', padding: '0 2rem' }}>
         <div style={{ marginBottom: '3rem' }}>
           <h2 className="section-heading" style={{ marginBottom: '0.75rem' }}>
@@ -70,7 +70,7 @@ const FAQ = () => {
               <div
                 key={i}
                 style={{
-                  background: 'rgba(255,255,255,0.92)',
+                  background: 'var(--color-surface-primary)',
                   border: `1px solid ${isOpen ? 'var(--brand-primary-500)' : 'var(--color-border-primary)'}`,
                   borderRadius: '16px',
                   overflow: 'hidden',

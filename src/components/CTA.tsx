@@ -32,7 +32,7 @@ const CTA = () => {
               Stop duct-taping tools together. Start building a resilient, AI-powered operational system that scales with you.
             </p>
             <div style={{ display: 'flex', justifyContent: 'center' }}>
-              <GlassButton onClick={() => console.log('CTA')}>
+              <GlassButton onClick={() => window.open('https://calendly.com/som-official01/30min', '_blank')}>
                 Book a Demo
               </GlassButton>
             </div>

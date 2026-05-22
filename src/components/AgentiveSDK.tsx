@@ -21,7 +21,7 @@ const SectionHeading = ({ id, title, subtitle }: { id: string; title: string; su
     <h2 style={{
       fontSize: '1.5rem', fontWeight: 700, color: 'var(--color-text-heading)',
       margin: 0, marginBottom: subtitle ? '0.5rem' : 0,
-      fontFamily: 'var(--font-sans)',
+      fontFamily: 'var(--font-family)',
       borderBottom: '1px solid var(--color-border-primary)',
       paddingBottom: '0.75rem',
     }}>{title}</h2>
@@ -34,42 +34,47 @@ const SectionHeading = ({ id, title, subtitle }: { id: string; title: string; su
 const SubHeading = ({ children }: { children: React.ReactNode }) => (
   <h3 style={{
     fontSize: '1.05rem', fontWeight: 650, color: 'var(--color-text-heading)',
-    margin: '2rem 0 0.75rem', fontFamily: 'var(--font-sans)',
+    margin: '2rem 0 0.75rem', fontFamily: 'var(--font-family)',
   }}>{children}</h3>
 );
 
-const Pill = ({ children, color }: { children: React.ReactNode; color?: string }) => (
-  <span style={{
-    display: 'inline-block', padding: '2px 8px', borderRadius: '999px',
-    fontSize: '0.72rem', fontWeight: 600, fontFamily: 'monospace',
-    background: color === 'purple' ? 'var(--brand-secondary-100)' : color === 'blue' ? '#dbeafe' : color === 'green' ? '#dcfce7' : 'var(--neutral-100)',
-    color: color === 'purple' ? 'var(--brand-secondary-600)' : color === 'blue' ? '#1d4ed8' : color === 'green' ? '#166534' : 'var(--neutral-600)',
-    border: `1px solid ${color === 'purple' ? 'var(--brand-secondary-200)' : color === 'blue' ? '#bfdbfe' : color === 'green' ? '#bbf7d0' : 'var(--color-border-primary)'}`,
-  }}>{children}</span>
-);
+const Pill = ({ children, color }: { children: React.ReactNode; color?: string }) => {
+  const isPurple = color === 'purple' || color === 'blue';
+  const isOrange = color === 'green';
+  const bg = isPurple ? 'var(--brand-secondary-25)' : isOrange ? 'var(--brand-primary-25)' : 'var(--neutral-100)';
+  const fg = isPurple ? 'var(--brand-secondary-500)' : isOrange ? 'var(--brand-primary-500)' : 'var(--color-text-body)';
+  const bd = isPurple ? 'var(--brand-secondary-400)' : isOrange ? 'var(--brand-primary-400)' : 'var(--color-border-primary)';
+  return (
+    <span style={{
+      display: 'inline-block', padding: '2px 8px', borderRadius: 'var(--m3-shape-full)',
+      fontSize: '0.72rem', fontWeight: 600, fontFamily: 'var(--font-family)',
+      background: bg, color: fg, border: `1px solid ${bd}`,
+    }}>{children}</span>
+  );
+};
 
 const Code = ({ children }: { children: React.ReactNode }) => (
   <code style={{
     fontFamily: 'monospace', fontSize: '0.82rem',
-    background: 'var(--neutral-100)', color: 'var(--brand-secondary-600)',
-    padding: '1px 5px', borderRadius: '4px',
+    background: 'var(--neutral-100)', color: 'var(--brand-secondary-500)',
+    padding: '1px 5px', borderRadius: 'var(--m3-shape-extra-small)',
     border: '1px solid var(--color-border-primary)',
   }}>{children}</code>
 );
 
 const CodeBlock = ({ code, lang = 'typescript' }: { code: string; lang?: string }) => (
   <div style={{
-    background: '#0f1117', borderRadius: '10px', overflow: 'hidden',
-    marginBottom: '1.5rem', border: '1px solid rgba(255,255,255,0.07)',
+    background: 'var(--brand-neutral-900)', borderRadius: 'var(--m3-shape-medium)', overflow: 'hidden',
+    marginBottom: '1.5rem', border: '1px solid var(--brand-neutral-700)',
   }}>
     <div style={{
-      padding: '8px 14px', background: 'rgba(255,255,255,0.04)',
-      borderBottom: '1px solid rgba(255,255,255,0.07)',
-      fontSize: '0.7rem', fontFamily: 'monospace', color: '#6b7280', letterSpacing: '0.05em',
+      padding: '8px 14px', background: 'var(--brand-neutral-800)',
+      borderBottom: '1px solid var(--brand-neutral-700)',
+      fontSize: '0.7rem', fontFamily: 'monospace', color: 'var(--brand-neutral-400)', letterSpacing: '0.05em',
     }}>{lang}</div>
     <pre style={{
       margin: 0, padding: '1rem 1.25rem', overflowX: 'auto',
-      fontSize: '0.8rem', lineHeight: 1.7, fontFamily: 'monospace', color: '#e2e8f0',
+      fontSize: '0.8rem', lineHeight: 1.7, fontFamily: 'monospace', color: 'var(--brand-neutral-100)',
     }}>{code}</pre>
   </div>
 );
@@ -87,10 +92,10 @@ const FieldTable = ({ rows }: { rows: { field: string; type: string; desc: strin
       <tbody>
         {rows.map((r, i) => (
           <tr key={i} style={{ borderBottom: '1px solid var(--color-border-primary)', background: i % 2 === 0 ? 'transparent' : 'var(--neutral-50)' }}>
-            <td style={{ padding: '8px 12px', fontFamily: 'monospace', fontSize: '0.78rem', color: 'var(--brand-secondary-600)', whiteSpace: 'nowrap' }}>
-              {r.field}{r.required && <span style={{ color: '#ef4444', marginLeft: 3 }}>*</span>}
+            <td style={{ padding: '8px 12px', fontFamily: 'monospace', fontSize: '0.78rem', color: 'var(--brand-secondary-500)', whiteSpace: 'nowrap' }}>
+              {r.field}{r.required && <span style={{ color: 'var(--brand-primary-500)', marginLeft: 3 }}>*</span>}
             </td>
-            <td style={{ padding: '8px 12px', fontFamily: 'monospace', fontSize: '0.76rem', color: 'var(--neutral-500)', whiteSpace: 'nowrap' }}>{r.type}</td>
+            <td style={{ padding: '8px 12px', fontFamily: 'monospace', fontSize: '0.76rem', color: 'var(--color-text-muted)', whiteSpace: 'nowrap' }}>{r.type}</td>
             <td style={{ padding: '8px 12px', color: 'var(--color-text-body)', lineHeight: 1.5 }}>{r.desc}</td>
           </tr>
         ))}
@@ -101,8 +106,8 @@ const FieldTable = ({ rows }: { rows: { field: string; type: string; desc: strin
 
 const InfoCard = ({ children, accent }: { children: React.ReactNode; accent?: string }) => (
   <div style={{
-    background: accent === 'purple' ? 'var(--brand-secondary-50)' : 'var(--neutral-50)',
-    border: `1px solid ${accent === 'purple' ? 'var(--brand-secondary-200)' : 'var(--color-border-primary)'}`,
+    background: accent === 'purple' ? 'var(--brand-secondary-25)' : 'var(--neutral-50)',
+    border: `1px solid ${accent === 'purple' ? 'var(--brand-secondary-400)' : 'var(--color-border-primary)'}`,
     borderLeft: `3px solid ${accent === 'purple' ? 'var(--brand-secondary-500)' : 'var(--neutral-300)'}`,
     borderRadius: '8px', padding: '1rem 1.25rem', marginBottom: '1.5rem',
     fontSize: '0.875rem', lineHeight: 1.6, color: 'var(--color-text-body)',
@@ -160,7 +165,7 @@ const SectionOverview = () => (
         <div style={{ fontWeight: 600, fontSize: '0.8rem', color: 'var(--color-text-muted)', marginBottom: '0.5rem', textTransform: 'uppercase', letterSpacing: '0.05em' }}>Required</div>
         {['@langchain/langgraph', '@langchain/core', 'LLM provider (e.g. @langchain/google-genai)'].map(d => (
           <div key={d} style={{ fontFamily: 'monospace', fontSize: '0.8rem', padding: '4px 0', color: 'var(--color-text-body)', display: 'flex', alignItems: 'center', gap: '6px' }}>
-            <span style={{ color: '#22c55e' }}>●</span> {d}
+            <span style={{ color: 'var(--brand-primary-500)' }}>●</span> {d}
           </div>
         ))}
       </div>
@@ -230,7 +235,7 @@ const SectionLayerModel = () => (
     <TwoCol
       left={
         <div style={{ border: '1px solid var(--color-border-primary)', borderRadius: '10px', overflow: 'hidden' }}>
-          <div style={{ background: 'var(--brand-secondary-500)', padding: '0.75rem 1rem', color: 'white', fontWeight: 700, fontSize: '0.875rem' }}>Developer Layer</div>
+          <div style={{ background: 'var(--brand-secondary-500)', padding: '0.75rem 1rem', color: 'var(--brand-neutral-25)', fontWeight: 700, fontSize: '0.875rem' }}>Developer Layer</div>
           <div style={{ padding: '1rem 1.25rem', background: 'var(--neutral-50)' }}>
             <p style={{ margin: '0 0 0.75rem', fontSize: '0.85rem', color: 'var(--color-text-body)', lineHeight: 1.5 }}>TypeScript/JS interfaces. Implement specialist logic, tools, and persistence backends in code.</p>
             <div style={{ display: 'flex', flexWrap: 'wrap', gap: '4px' }}>
@@ -241,7 +246,7 @@ const SectionLayerModel = () => (
       }
       right={
         <div style={{ border: '1px solid var(--color-border-primary)', borderRadius: '10px', overflow: 'hidden' }}>
-          <div style={{ background: 'var(--neutral-700)', padding: '0.75rem 1rem', color: 'white', fontWeight: 700, fontSize: '0.875rem' }}>Admin Config Layer</div>
+          <div style={{ background: 'var(--brand-neutral-900)', padding: '0.75rem 1rem', color: 'var(--brand-neutral-25)', fontWeight: 700, fontSize: '0.875rem' }}>Admin Config Layer</div>
           <div style={{ padding: '1rem 1.25rem', background: 'var(--neutral-50)' }}>
             <p style={{ margin: '0 0 0.75rem', fontSize: '0.85rem', color: 'var(--color-text-body)', lineHeight: 1.5 }}>agent-manifest.json. Declare agent identity, register specialists, define workflows, configure guards — no code required.</p>
             <Pill>agent-manifest.json</Pill>
@@ -772,11 +777,11 @@ const SectionModelConfig = () => (
     <SubHeading>Temperature Guidance</SubHeading>
     <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '0.75rem', marginBottom: '1.5rem' }}>
       {[
-        { label: 'Research & Intelligence', range: '0.1', color: '#3b82f6' },
-        { label: 'Planner & Strategy',      range: '0.1–0.3', color: '#8b5cf6' },
-        { label: 'Manager & Analytics',     range: '0.3', color: '#06b6d4' },
-        { label: 'Orchestrator',             range: '0.7', color: '#f59e0b' },
-        { label: 'Creative & Copy',          range: '0.7–0.9', color: '#ef4444' },
+        { label: 'Research & Intelligence', range: '0.1', color: 'var(--brand-secondary-500)' },
+        { label: 'Planner & Strategy',      range: '0.1–0.3', color: 'var(--brand-secondary-400)' },
+        { label: 'Manager & Analytics',     range: '0.3', color: 'var(--brand-neutral-700)' },
+        { label: 'Orchestrator',             range: '0.7', color: 'var(--brand-primary-400)' },
+        { label: 'Creative & Copy',          range: '0.7–0.9', color: 'var(--brand-primary-500)' },
       ].map(t => (
         <div key={t.label} style={{ border: '1px solid var(--color-border-primary)', borderRadius: '8px', padding: '0.75rem', background: 'var(--neutral-50)' }}>
           <div style={{ fontSize: '0.75rem', color: 'var(--color-text-muted)', marginBottom: '0.25rem' }}>{t.label}</div>
@@ -855,7 +860,7 @@ const SectionExtensionPoints = () => (
           <SubHeading>Developer Layer Interfaces</SubHeading>
           <div style={{ display: 'flex', flexWrap: 'wrap', gap: '6px' }}>
             {['ISpecialistNode', 'IThinkingLoopSpecialist', 'IDeterministicPipeline', 'IInternalTool', 'IContextLoader', 'IContextFormatter', 'IThreadStore', 'IEntityStore', 'BaseCheckpointSaver'].map(i => (
-              <div key={i} style={{ fontSize: '0.78rem', fontFamily: 'monospace', background: 'var(--brand-secondary-50)', border: '1px solid var(--brand-secondary-200)', borderRadius: '6px', padding: '4px 8px', color: 'var(--brand-secondary-700)' }}>{i}</div>
+              <div key={i} style={{ fontSize: '0.78rem', fontFamily: 'monospace', background: 'var(--brand-secondary-25)', border: '1px solid var(--brand-secondary-400)', borderRadius: 'var(--m3-shape-small)', padding: '4px 8px', color: 'var(--brand-secondary-500)' }}>{i}</div>
             ))}
           </div>
         </>
@@ -978,10 +983,10 @@ export default function AgentiveSDK({ activeId }: AgentiveSDKProps) {
       style={{
         flex: 1,
         minHeight: 0,
-        background: 'rgba(255,255,255,0.92)',
+        background: 'var(--color-surface-primary)',
         border: '1px solid var(--color-border-primary)',
-        borderRadius: '24px',
-        boxShadow: '0 2px 12px rgba(0,0,0,0.04)',
+        borderRadius: 'var(--m3-shape-extra-large)',
+        boxShadow: 'var(--shadow-sm)',
         display: 'flex',
         flexDirection: 'column',
         overflow: 'hidden',
