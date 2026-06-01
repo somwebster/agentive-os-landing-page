@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { ChevronDown, Unplug, Users, Zap, Puzzle } from 'lucide-react';
+import { SansEmphasis } from './SansEmphasis';
 
 // ─── Data ─────────────────────────────────────────────────────────────────────
 
@@ -580,7 +581,7 @@ const Problem = () => {
 
       <div style={{ maxWidth: '1200px', margin: '0 auto', padding: '0 2rem' }}>
         <h2 className="section-heading">
-          Agencies run on duct tape.<br />
+          <SansEmphasis>Agencies</SansEmphasis> run on duct tape.<br />
           <span style={{ color: 'var(--brand-primary-500)' }}>It works, until it doesn't.</span>
         </h2>
 

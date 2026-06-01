@@ -1,32 +1,146 @@
 import React from 'react';
-import { Server, ShieldCheck } from 'lucide-react';
 import './marquee.css';
 import LandingHero from './LandingHero';
-import { HeroHighlight, Highlight } from './hero-highlight';
+import { HeroBackgroundVideo } from './HeroBackgroundVideo';
 import { motion } from 'framer-motion';
 
-const CSSMarquee = ({ children, direction = 'left', speed = 30 }: any) => {
+type IntegrationItem = {
+  name: string;
+  icon: string;
+  iconStyle?: React.CSSProperties;
+};
+
+const AI_MODELS: IntegrationItem[] = [
+  { name: 'OpenAI', icon: '/openai.webp' },
+  { name: 'Gemini', icon: 'https://cdn.simpleicons.org/googlegemini/8E75B2' },
+  { name: 'Claude', icon: 'https://cdn.simpleicons.org/claude' },
+  { name: 'OpenRouter', icon: 'https://cdn.simpleicons.org/openrouter' },
+  { name: 'Fal AI', icon: '/fal-color.svg' },
+];
+
+const PRODUCTIVITY: IntegrationItem[] = [
+  { name: 'Google Drive', icon: 'https://cdn.simpleicons.org/googledrive/0F9D58' },
+  { name: 'Google Docs', icon: 'https://cdn.simpleicons.org/googledocs/4285F4' },
+  { name: 'Slack', icon: '/Slack_icon_2019.png', iconStyle: { borderRadius: '4px' } },
+  { name: 'Notion', icon: 'https://cdn.simpleicons.org/notion/000000' },
+  { name: 'Trello', icon: 'https://cdn.simpleicons.org/trello/0052CC' },
+  { name: 'Airtable', icon: 'https://cdn.simpleicons.org/airtable/18BFFF' },
+  { name: 'Gmail', icon: 'https://cdn.simpleicons.org/gmail/EA4335' },
+  { name: 'Figma', icon: 'https://cdn.simpleicons.org/figma/F24E1E' },
+];
+
+const PLATFORMS: IntegrationItem[] = [
+  { name: 'Google Ads', icon: 'https://cdn.simpleicons.org/googleads/F4B400' },
+  { name: 'Analytics', icon: 'https://cdn.simpleicons.org/googleanalytics/E37400' },
+  { name: 'Meta', icon: 'https://cdn.simpleicons.org/meta/0468FF' },
+  { name: 'Stripe', icon: 'https://cdn.simpleicons.org/stripe/635BFF' },
+  { name: 'TikTok', icon: 'https://cdn.simpleicons.org/tiktok/000000' },
+  { name: 'Shopify', icon: 'https://cdn.simpleicons.org/shopify/95BF47' },
+  { name: 'GitHub', icon: 'https://cdn.simpleicons.org/github/181717' },
+  { name: 'Vercel', icon: 'https://cdn.simpleicons.org/vercel/000000' },
+];
+
+/** Repeat items so each marquee segment is wider than any viewport (no gaps on large screens). */
+function repeatItems<T>(items: T[], times: number): T[] {
+  return Array.from({ length: times }, () => items).flat();
+}
+
+function IntegrationChip({ name, icon, iconStyle }: IntegrationItem) {
   return (
-    <div className="marquee-container">
-      <div className={`marquee-content ${direction === 'right' ? 'reverse' : ''}`} style={{ animationDuration: `${speed}s` }}>
-        {children}
+    <div className="marquee-integration-item">
+      <img src={icon} width={20} height={20} alt="" aria-hidden style={iconStyle} />
+      <span>{name}</span>
+    </div>
+  );
+}
+
+type IntegrationsMarqueeProps = {
+  items: IntegrationItem[];
+  direction?: 'left' | 'right';
+  speed?: number;
+};
+
+/**
+ * Seamless infinite marquee: one animated track with two identical segments.
+ * Animation moves -50% of track width (= one segment) for a gapless loop.
+ */
+type HeroValueCardProps = {
+  icon: string;
+  title: string;
+  body: string;
+};
+
+const HERO_VALUE_PROPS: HeroValueCardProps[] = [
+  {
+    icon: 'architecture',
+    title: 'Developed for you',
+    body:
+      'We design and build agents, workflows, and knowledge graphs around how your agency actually operates—not one-size-fits-all templates.',
+  },
+  {
+    icon: 'cloud_done',
+    title: 'Managed for you',
+    body:
+      'Infrastructure, updates, scaling, and monitoring stay on us—so your team focuses on clients and delivery, not keeping the stack alive.',
+  },
+  {
+    icon: 'key',
+    title: 'Owned by you',
+    body:
+      'Your data, models, and IP stay in your environment. You control what ships, where it runs, and how it evolves—no black-box lock-in.',
+  },
+];
+
+function HeroValueIcon({ name }: { name: string }) {
+  return (
+    <span className="material-symbols-rounded hero-value-card__icon" aria-hidden>
+      {name}
+    </span>
+  );
+}
+
+function HeroValueCard({ icon, title, body }: HeroValueCardProps) {
+  return (
+    <article className="hero-value-card">
+      <div className="hero-value-card__header">
+        <HeroValueIcon name={icon} />
+        <h3 className="hero-value-card__title">{title}</h3>
       </div>
-      <div className={`marquee-content ${direction === 'right' ? 'reverse' : ''}`} aria-hidden="true" style={{ animationDuration: `${speed}s` }}>
-        {children}
+      <p className="hero-value-card__body">{body}</p>
+    </article>
+  );
+}
+
+function IntegrationsMarquee({ items, direction = 'left', speed = 40 }: IntegrationsMarqueeProps) {
+  const segmentItems = repeatItems(items, 4);
+  const segment = (
+    <div className="marquee-items-row">
+      {segmentItems.map((item, i) => (
+        <IntegrationChip key={`${item.name}-${i}`} {...item} />
+      ))}
+    </div>
+  );
+
+  return (
+    <div className="marquee-container marquee-container--full-bleed">
+      <div
+        className={`marquee-track ${direction === 'right' ? 'marquee-track--right' : 'marquee-track--left'}`}
+        style={{ animationDuration: `${speed}s` }}
+      >
+        <div className="marquee-segment">{segment}</div>
+        <div className="marquee-segment" aria-hidden="true">
+          {segment}
+        </div>
       </div>
     </div>
   );
-};
+}
 
 const Hero: React.FC = () => {
   return (
     <div className="dd-hero-content relative">
-      {/* Pointer Highlight Effect as Background */}
-      <div className="absolute inset-0 z-0">
-        <HeroHighlight containerClassName="h-full w-full" />
-      </div>
-
-      <div className="dd-hero-center relative z-10">
+      <div className="dd-hero-center">
+        <div className="dd-hero-center__content">
         <LandingHero
           title={
             <motion.div
@@ -59,7 +173,16 @@ const Hero: React.FC = () => {
                   Build AI-Native Agencies
                 </span>
               </div>
-              <span style={{ fontSize: '0.8em', fontWeight: 500, display: 'block', whiteSpace: 'normal', lineHeight: 1.1, marginBottom: '0.2rem' }}>
+              <span style={{
+                fontFamily: 'var(--font-family)',
+                fontSize: '24px',
+                fontWeight: 300,
+                fontStyle: 'normal',
+                display: 'block',
+                whiteSpace: 'normal',
+                lineHeight: 1.1,
+                marginBottom: '0.2rem',
+              }}>
                 Operating System for
               </span>
               <span style={{
@@ -79,136 +202,30 @@ const Hero: React.FC = () => {
           ctaLabel="Book a Demo"
           onCtaClick={() => window.open('https://calendly.com/som-official01/30min', '_blank')}
         />
+        </div>
+        <HeroBackgroundVideo />
       </div>
 
-      {/* Bento Grid */}
-      <div className="bento-hero-grid">
-
-        {/* Logos Card (Spans full width on desktop) */}
-        <div className="bento-logos-card card" style={{
-          borderRadius: 'var(--radius-card)',
-          display: 'flex',
-          flexDirection: 'row',
-          flexWrap: 'wrap',
-          alignItems: 'center',
-          gap: '2rem',
-          padding: 'clamp(1rem, 5vw, 2rem)',
-          minWidth: 0
-        }}>
-          <div style={{ flex: '1 1 200px', minWidth: '0', alignSelf: 'flex-start' }}>
-            <h3 style={{
-              fontWeight: 700,
-              color: 'var(--neutral-900)',
-              margin: 0,
-              lineHeight: 1.2,
-              display: 'flex',
-              flexDirection: 'column',
-              gap: '0.25rem',
-              whiteSpace: 'normal',
-              wordBreak: 'break-word'
-            }}>
-              <span style={{ fontSize: 'clamp(0.75rem, 4vw, 1rem)', color: 'var(--neutral-700)', fontWeight: 550 }}>Build Agents, workflows & Knowledge Graphs with</span>
-              <span style={{ fontSize: 'clamp(1.4rem, 6vw, 2.2rem)', color: 'var(--brand-primary-500)' }}>100+ Integrations</span>
-            </h3>
-          </div>
-
-          <div style={{ flex: '3 1 500px', display: 'flex', flexDirection: 'column', gap: '1.5rem', minWidth: '0', overflow: 'hidden' }}>
-
-            {/* Row 1: AI Models */}
-            <CSSMarquee speed={60} direction="left">
-              <div style={{ display: 'flex', gap: '3rem' }}>
-                <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', color: 'var(--neutral-700)', fontWeight: 600, fontSize: '0.9rem' }}><img src="/openai.webp" width="20" height="20" alt="OpenAI" /> OpenAI</div>
-                <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', color: 'var(--neutral-700)', fontWeight: 600, fontSize: '0.9rem' }}><img src="https://cdn.simpleicons.org/googlegemini/8E75B2" width="20" height="20" alt="Gemini" /> Gemini</div>
-                <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', color: 'var(--neutral-700)', fontWeight: 600, fontSize: '0.9rem' }}><img src="https://cdn.simpleicons.org/claude" width="20" height="20" alt="Claude" /> Claude</div>
-                <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', color: 'var(--neutral-700)', fontWeight: 600, fontSize: '0.9rem' }}><img src="https://cdn.simpleicons.org/openrouter" width="20" height="20" alt="OpenRouter" /> OpenRouter</div>
-                <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', color: 'var(--neutral-700)', fontWeight: 600, fontSize: '0.9rem' }}><img src="/fal-color.svg" width="20" height="20" alt="Fal AI" /> Fal AI</div>
-
-                {/* Duplicate the set so it fills the screen cleanly */}
-                <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', color: 'var(--neutral-700)', fontWeight: 600, fontSize: '0.9rem' }}><img src="/openai.webp" width="20" height="20" alt="OpenAI" /> OpenAI</div>
-                <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', color: 'var(--neutral-700)', fontWeight: 600, fontSize: '0.9rem' }}><img src="https://cdn.simpleicons.org/googlegemini/8E75B2" width="20" height="20" alt="Gemini" /> Gemini</div>
-                <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', color: 'var(--neutral-700)', fontWeight: 600, fontSize: '0.9rem' }}><img src="https://cdn.simpleicons.org/claude" width="20" height="20" alt="Claude" /> Claude</div>
-                <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', color: 'var(--neutral-700)', fontWeight: 600, fontSize: '0.9rem' }}><img src="https://cdn.simpleicons.org/openrouter" width="20" height="20" alt="OpenRouter" /> OpenRouter</div>
-                <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', color: 'var(--neutral-700)', fontWeight: 600, fontSize: '0.9rem' }}><img src="/fal-color.svg" width="20" height="20" alt="Fal AI" /> Fal AI</div>
-              </div>
-            </CSSMarquee>
-
-            {/* Row 2: CRM & Productivity */}
-            <CSSMarquee speed={55} direction="right">
-              <div style={{ display: 'flex', gap: '3rem' }}>
-                <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', color: 'var(--neutral-700)', fontWeight: 600, fontSize: '0.9rem' }}><img src="https://cdn.simpleicons.org/googledrive/0F9D58" width="20" height="20" alt="Google Drive" /> Google Drive</div>
-                <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', color: 'var(--neutral-700)', fontWeight: 600, fontSize: '0.9rem' }}><img src="https://cdn.simpleicons.org/googledocs/4285F4" width="20" height="20" alt="Google Docs" /> Google Docs</div>
-                <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', color: 'var(--neutral-700)', fontWeight: 600, fontSize: '0.9rem' }}><img src="/Slack_icon_2019.png" width="20" height="20" alt="Slack" style={{ borderRadius: '4px' }} /> Slack</div>
-                <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', color: 'var(--neutral-700)', fontWeight: 600, fontSize: '0.9rem' }}><img src="https://cdn.simpleicons.org/notion/000000" width="20" height="20" alt="Notion" /> Notion</div>
-                <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', color: 'var(--neutral-700)', fontWeight: 600, fontSize: '0.9rem' }}><img src="https://cdn.simpleicons.org/trello/0052CC" width="20" height="20" alt="Trello" /> Trello</div>
-                <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', color: 'var(--neutral-700)', fontWeight: 600, fontSize: '0.9rem' }}><img src="https://cdn.simpleicons.org/airtable/18BFFF" width="20" height="20" alt="Airtable" /> Airtable</div>
-                <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', color: 'var(--neutral-700)', fontWeight: 600, fontSize: '0.9rem' }}><img src="https://cdn.simpleicons.org/gmail/EA4335" width="20" height="20" alt="Gmail" /> Gmail</div>
-                <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', color: 'var(--neutral-700)', fontWeight: 600, fontSize: '0.9rem' }}><img src="https://cdn.simpleicons.org/figma/F24E1E" width="20" height="20" alt="Figma" /> Figma</div>
-              </div>
-            </CSSMarquee>
-
-            {/* Row 3: Platforms */}
-            <CSSMarquee speed={65} direction="left">
-              <div style={{ display: 'flex', gap: '3rem' }}>
-                <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', color: 'var(--neutral-700)', fontWeight: 600, fontSize: '0.9rem' }}><img src="https://cdn.simpleicons.org/googleads/F4B400" width="20" height="20" alt="Google Ads" /> Google Ads</div>
-                <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', color: 'var(--neutral-700)', fontWeight: 600, fontSize: '0.9rem' }}><img src="https://cdn.simpleicons.org/googleanalytics/E37400" width="20" height="20" alt="Google Analytics" /> Analytics</div>
-                <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', color: 'var(--neutral-700)', fontWeight: 600, fontSize: '0.9rem' }}><img src="https://cdn.simpleicons.org/meta/0468FF" width="20" height="20" alt="Meta" /> Meta</div>
-                <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', color: 'var(--neutral-700)', fontWeight: 600, fontSize: '0.9rem' }}><img src="https://cdn.simpleicons.org/stripe/635BFF" width="20" height="20" alt="Stripe" /> Stripe</div>
-                <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', color: 'var(--neutral-700)', fontWeight: 600, fontSize: '0.9rem' }}><img src="https://cdn.simpleicons.org/tiktok/000000" width="20" height="20" alt="TikTok" /> TikTok</div>
-                <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', color: 'var(--neutral-700)', fontWeight: 600, fontSize: '0.9rem' }}><img src="https://cdn.simpleicons.org/shopify/95BF47" width="20" height="20" alt="Shopify" /> Shopify</div>
-                <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', color: 'var(--neutral-700)', fontWeight: 600, fontSize: '0.9rem' }}><img src="https://cdn.simpleicons.org/github/181717" width="20" height="20" alt="GitHub" /> GitHub</div>
-                <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', color: 'var(--neutral-700)', fontWeight: 600, fontSize: '0.9rem' }}><img src="https://cdn.simpleicons.org/vercel/000000" width="20" height="20" alt="Vercel" /> Vercel</div>
-              </div>
-            </CSSMarquee>
-
-          </div>
+      <section className="hero-integrations-strip" aria-label="Integrations">
+        <div className="hero-integrations-marquees">
+          <IntegrationsMarquee items={AI_MODELS} direction="left" speed={50} />
+          <IntegrationsMarquee items={PRODUCTIVITY} direction="right" speed={55} />
+          <IntegrationsMarquee items={PLATFORMS} direction="left" speed={48} />
         </div>
-        {/* Sub-cards row */}
-        <div className="bento-subcards-row" style={{
-          display: 'grid',
-          gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 300px), 1fr))',
-          gap: '1.25rem',
-          width: '100%',
-          minWidth: 0
-        }}>
-          {/* Card 1 */}
-          <div style={{
-            background: 'var(--neutral-25)',
-            borderRadius: 'var(--radius-card)',
-            padding: 'clamp(1.5rem, 5vw, 2.5rem)',
-            display: 'flex',
-            flexDirection: 'column',
-            gap: '1rem',
-            boxShadow: 'var(--shadow-sm)',
-            border: '1px solid var(--color-border-primary)'
-          }}>
-            <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
-              <Server size={32} color="var(--brand-primary-500)" strokeWidth={2} />
-              <h3 style={{ fontSize: '1.5rem', fontWeight: 700, color: 'var(--neutral-900)', margin: 0 }}>Fully Managed.</h3>
-            </div>
-            <p style={{ color: 'var(--neutral-700)', lineHeight: 1.6, margin: 0 }}>
-              We handle infrastructure, updates, scaling, and maintenance - so you can focus more on scaling your operations not the tech.
-            </p>
-          </div>
 
-          {/* Card 2 */}
-          <div style={{
-            background: 'var(--neutral-25)',
-            borderRadius: 'var(--radius-card)',
-            padding: 'clamp(1.5rem, 5vw, 2.5rem)',
-            display: 'flex',
-            flexDirection: 'column',
-            gap: '1rem',
-            boxShadow: 'var(--shadow-sm)',
-            border: '1px solid var(--color-border-primary)'
-          }}>
-            <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
-              <ShieldCheck size={32} color="var(--brand-secondary-500)" strokeWidth={2} />
-              <h3 style={{ fontSize: '1.5rem', fontWeight: 700, color: 'var(--neutral-900)', margin: 0 }}>Fully Yours.</h3>
-            </div>
-            <p style={{ color: 'var(--neutral-700)', lineHeight: 1.6, margin: 0 }}>
-              Everything you need to operate with AI - Agents, workflows and knowledge graphs custom built and managed for you.
-            </p>
-          </div>
+        <div className="hero-integrations-header">
+          <h3 className="hero-integrations-title">
+            <span className="hero-integrations-eyebrow">Build Agents, workflows & Knowledge Graphs with</span>
+            <span className="hero-integrations-headline">100+ Integrations</span>
+          </h3>
+        </div>
+      </section>
+
+      <div className="bento-hero-grid">
+        <div className="bento-subcards-row">
+          {HERO_VALUE_PROPS.map((card) => (
+            <HeroValueCard key={card.title} {...card} />
+          ))}
         </div>
       </div>
     </div>

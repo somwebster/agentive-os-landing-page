@@ -1,13 +1,14 @@
 import React from 'react';
 import GlassButton from './GlassButton';
+import { SansEmphasis } from './SansEmphasis';
 
 const Flow = () => {
   return (
     <section className="flow" style={{ marginTop: '6rem' }}>
       <div style={{ maxWidth: '1200px', margin: '0 auto', padding: '0 2rem' }}>
         <h2 className="section-heading" style={{ marginBottom: '1rem' }}>
-          Human-Led Strategy.<br />
-          <span style={{ color: 'var(--brand-secondary-500)' }}>AI-Powered Execution.</span>
+          <SansEmphasis>Human-Led</SansEmphasis> Strategy.<br />
+          <span style={{ color: 'var(--brand-secondary-500)' }}><SansEmphasis>AI-Powered</SansEmphasis> Execution.</span>
         </h2>
         <p style={{ fontSize: '1.1rem', color: 'var(--neutral-700)', marginBottom: '3rem', maxWidth: '600px' }}>
           This isn't automation slapped on top of chaos. It's a fundamental shift in how work flows through your agency.

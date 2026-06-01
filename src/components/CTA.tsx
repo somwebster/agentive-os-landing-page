@@ -1,5 +1,6 @@
 import React from 'react';
 import GlassButton from './GlassButton';
+import { SansEmphasis } from './SansEmphasis';
 
 const CTA = () => {
   return (
@@ -26,7 +27,7 @@ const CTA = () => {
           {/* Content */}
           <div style={{ position: 'relative', zIndex: 1 }}>
             <h2 className="section-heading" style={{ marginBottom: '1rem', color: '#ffffff' }}>
-              Ready to Upgrade Your Agency?
+              Ready to <SansEmphasis>Upgrade Your Agency?</SansEmphasis>
             </h2>
             <p style={{ fontSize: '1.2rem', marginBottom: '2rem', color: 'rgba(255,255,255,0.8)', maxWidth: '600px', margin: '0 auto 2rem' }}>
               Stop duct-taping tools together. Start building a resilient, AI-powered operational system that scales with you.
