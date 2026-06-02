@@ -149,30 +149,6 @@ const Hero: React.FC = () => {
               transition={{ duration: 0.5 }}
               style={{ lineHeight: 1.1 }}
             >
-              <div style={{
-                fontSize: '0.38em',
-                fontWeight: 500,
-                color: 'var(--color-text-heading)',
-                marginBottom: '0.8rem',
-                display: 'block',
-                fontFamily: "'Caveat', cursive",
-                textTransform: 'none'
-              }}>
-                <span style={{ position: 'relative', display: 'inline-block', padding: '0 4px' }}>
-                  <span style={{
-                    position: 'absolute',
-                    bottom: '4px',
-                    left: 0,
-                    width: '100%',
-                    height: '40%',
-                    background: 'var(--color-highlighter)',
-                    zIndex: -1,
-                    transform: 'rotate(-1deg) skewX(-10deg)',
-                    borderRadius: '2px'
-                  }} />
-                  Build AI-Native Agencies
-                </span>
-              </div>
               <span style={{
                 fontFamily: 'var(--font-family)',
                 fontSize: '24px',
@@ -215,8 +191,8 @@ const Hero: React.FC = () => {
 
         <div className="hero-integrations-header">
           <h3 className="hero-integrations-title">
-            <span className="hero-integrations-eyebrow">Build Agents, workflows & Knowledge Graphs with</span>
-            <span className="hero-integrations-headline">100+ Integrations</span>
+            <span className="hero-integrations-eyebrow">Build your OS with custom Agents, Workflows and Knowledge Graphs — Powered by</span>
+            <span className="hero-integrations-headline">100+ integrations</span>
           </h3>
         </div>
       </section>
