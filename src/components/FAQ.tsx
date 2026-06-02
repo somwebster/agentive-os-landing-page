@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { SansEmphasis } from './SansEmphasis';
 import { ChevronDown } from 'lucide-react';
 
 const FAQS = [
@@ -56,7 +57,7 @@ const FAQ = () => {
       <div style={{ maxWidth: '1200px', margin: '0 auto', padding: '0 2rem' }}>
         <div style={{ marginBottom: '3rem' }}>
           <h2 className="section-heading" style={{ marginBottom: '0.75rem' }}>
-            Frequently Asked Questions
+            Frequently Asked <SansEmphasis>Questions</SansEmphasis>
           </h2>
           <p style={{ fontSize: '1.1rem', color: 'var(--neutral-700)', maxWidth: '560px' }}>
             Everything you need to know about building an AI-native agency with Agentive OS.

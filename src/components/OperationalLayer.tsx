@@ -1,5 +1,6 @@
 import React from 'react';
 import './marquee.css';
+import { SansEmphasis } from './SansEmphasis';
 
 // ─── Context Graph (SVG, no WebGL) ───────────────────────────────────────────
 
@@ -325,8 +326,8 @@ const OperationalLayer = () => (
       {/* Header */}
       <div style={{ maxWidth: '700px', marginBottom: '3.5rem' }}>
         <h2 className="section-heading" style={{ fontSize: 'clamp(2.2rem, 5vw, 3rem)', marginBottom: '1rem', lineHeight: 1.1, fontWeight: 700 }}>
-          The AI-Native<br />
-          <span style={{ color: 'var(--brand-primary-500)' }}>Operational Architecture.</span>
+          The <SansEmphasis>AI-Native</SansEmphasis><br />
+          <span style={{ color: 'var(--brand-primary-500)' }}><SansEmphasis>Operational Architecture</SansEmphasis>.</span>
         </h2>
         <p style={{ fontSize: '1.1rem', color: 'var(--neutral-700)', lineHeight: 1.65 }}>
           An AI Operating System that scales your team's throughput, not your headcount. Make every member 10x and give your clients an unmatched experience like never before.
