@@ -1,5 +1,6 @@
 import React from 'react';
 import { LANDING_NAV_ITEMS } from './landingNavItems';
+import type { LandingNavItem } from './landingNavItems';
 import { useLandingNavHighlight } from './useLandingNavHighlight';
 
 function NavSymbol({ name }: { name: string }) {
@@ -13,9 +14,10 @@ function NavSymbol({ name }: { name: string }) {
 export type LandingNavMenuProps = {
   enabled: boolean;
   onScrollTo: (selector: string) => void;
+  items?: LandingNavItem[];
 };
 
-export function LandingNavMenu({ enabled, onScrollTo }: LandingNavMenuProps) {
+export function LandingNavMenu({ enabled, onScrollTo, items = LANDING_NAV_ITEMS }: LandingNavMenuProps) {
   const {
     navRef,
     highlightRef,
@@ -24,7 +26,7 @@ export function LandingNavMenu({ enabled, onScrollTo }: LandingNavMenuProps) {
     onNavPointerMove,
     onNavPointerLeave,
     applyHighlightToId,
-  } = useLandingNavHighlight({ items: LANDING_NAV_ITEMS, enabled });
+  } = useLandingNavHighlight({ items, enabled });
 
   return (
     <nav
@@ -41,7 +43,7 @@ export function LandingNavMenu({ enabled, onScrollTo }: LandingNavMenuProps) {
     >
       <div ref={highlightRef} className="landing-nav-highlight" aria-hidden />
 
-      {LANDING_NAV_ITEMS.map((item) => {
+      {items.map((item) => {
         const isSelected = activeId === item.id;
         const handleActivate = () => {
           const target = document.querySelector(item.section);
