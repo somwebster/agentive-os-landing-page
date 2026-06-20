@@ -3796,14 +3796,14 @@ body:has(.comp-library-layout) {
 }
 
 .landing-v2-pillar-card h3 {
-  font-size: 24px;
-  font-weight: 400;
-  line-height: 28px;
-  margin: 0 0 0.6rem;
+  font-size: clamp(1.125rem, 0.35rem + 1.4vw, 1.5rem);
+  font-weight: 500;
+  line-height: 1.17;
+  margin: 0 0 clamp(0.5rem, 1vw, 0.6rem);
 }
 
 .landing-v2-pillar-card p {
-  font-size: 1rem;
+  font-size: clamp(0.9rem, 0.65rem + 0.55vw, 1.05rem);
   color: var(--neutral-700);
   line-height: 1.6;
   margin: 0;
@@ -3852,6 +3852,7 @@ body:has(.comp-library-layout) {
 .landing-v2-hero-copy {
   position: relative;
   z-index: 2;
+  min-width: 0;
 }
 
 .landing-v2-hero-sub {
@@ -3866,6 +3867,7 @@ body:has(.comp-library-layout) {
     calc(50svh - clamp(150px, 19vw, 220px))
   );
   z-index: 1;
+  min-width: 0;
 }
 
 .landing-v2-hero-visual {
@@ -4006,32 +4008,36 @@ body:has(.comp-library-layout) {
   box-shadow: 0 0 0 5px rgba(247, 98, 30, 0.13);
 }
 
-/* Integrations — header centered in 90vh; marquees sit above it */
+/* Integrations — marquees above headline in natural flow */
 .landing-v2-integrations {
   width: 100vw;
   margin-left: 50%;
   transform: translateX(-50%);
   margin-top: 5rem;
   min-height: 80vh;
-  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: var(--integrations-marquee-gap);
   padding: clamp(2rem, 4vh, 3rem) 0;
-  --integrations-marquee-gap: clamp(2.25rem, 2.5vh, 4rem); /* 40px at widest */
+  --integrations-marquee-gap: clamp(2.75rem, 2.5vh, 4.5rem);
 }
 
 .landing-v2-integrations-marquees {
-  position: absolute;
-  left: 0;
-  right: 0;
-  top: clamp(2rem, 4vh, 3rem);
-  bottom: calc(50% + clamp(5.5rem, 12vh, 8.5rem) + var(--integrations-marquee-gap));
   display: flex;
   flex-direction: column;
-  justify-content: flex-end;
   gap: clamp(1.25rem, 2.5vh, 1.75rem);
+  flex-shrink: 0;
+}
+
+.landing-v2-integrations-marquees .marquee-container {
+  min-height: fit-content;
+  flex-shrink: 0;
+  overflow-x: hidden;
+  overflow-y: visible;
 }
 
 .landing-v2-integrations .marquee-items-row {
-  gap: clamp(2.5rem, 4vw, 3.5rem);
+  gap: clamp(2.5rem, 4vw, 4rem);
   padding-right: clamp(2.5rem, 4vw, 3.5rem);
 }
 
@@ -4046,11 +4052,6 @@ body:has(.comp-library-layout) {
 }
 
 .landing-v2-integrations-header {
-  position: absolute;
-  top: 50%;
-  left: 0;
-  right: 0;
-  transform: translateY(-50%);
   text-align: center;
   padding: 0 clamp(1rem, 5vw, 2.5rem);
   z-index: 1;
@@ -4134,7 +4135,7 @@ body:has(.comp-library-layout) {
 .landing-v2-integrations-cta {
   display: flex;
   justify-content: center;
-  margin-top: calc(var(--integrations-marquee-gap) * 2.0);
+  margin-top: calc(var(--integrations-marquee-gap) * 2.5);
 }
 
 /* Problem + How: V1-style split (accordion left, animated preview right) */
@@ -4670,6 +4671,35 @@ body:has(.comp-library-layout) {
   background: rgba(28, 18, 12, 0.86);
 }
 
+[data-theme='dark'] .landing-v2-pillar-card {
+  background: rgba(28, 18, 12, 0.9);
+}
+
+[data-theme='dark'] .landing-v2-pillars-grid .landing-v2-pillar-card:nth-child(1) {
+  background:
+    radial-gradient(ellipse 115% 85% at 14% -6%, rgba(247, 98, 30, 0.22), transparent 54%),
+    radial-gradient(ellipse 72% 58% at 90% 106%, rgba(150, 59, 247, 0.18), transparent 40%),
+    rgba(28, 18, 12, 0.9);
+}
+
+[data-theme='dark'] .landing-v2-pillars-grid .landing-v2-pillar-card:nth-child(2) {
+  background:
+    radial-gradient(ellipse 62% 48% at 94% 4%, rgba(247, 98, 30, 0.18), transparent 36%),
+    radial-gradient(ellipse 128% 95% at 8% 104%, rgba(150, 59, 247, 0.24), transparent 58%),
+    rgba(28, 18, 12, 0.9);
+}
+
+[data-theme='dark'] .landing-v2-pillars-grid .landing-v2-pillar-card:nth-child(3) {
+  background:
+    radial-gradient(ellipse 88% 68% at 58% -10%, rgba(247, 98, 30, 0.2), transparent 46%),
+    radial-gradient(ellipse 58% 52% at 78% 108%, rgba(150, 59, 247, 0.2), transparent 34%),
+    rgba(28, 18, 12, 0.9);
+}
+
+[data-theme='dark'] .landing-v2-pillar-card p {
+  color: var(--color-text-body);
+}
+
 [data-theme='dark'] .landing-v2-agent-card {
   background: rgba(15, 15, 17, 0.78);
 }
@@ -4700,24 +4730,8 @@ body:has(.comp-library-layout) {
 @media (max-width: 768px) {
   .landing-v2-integrations {
     min-height: auto;
-    display: flex;
-    flex-direction: column;
-    gap: clamp(2rem, 5vh, 3.5rem);
+    gap: clamp(2.5rem, 5vh, 3.5rem);
     padding: clamp(3rem, 8vh, 5rem) 0;
-  }
-
-  .landing-v2-integrations-marquees,
-  .landing-v2-integrations-header {
-    position: static;
-    top: auto;
-    right: auto;
-    bottom: auto;
-    left: auto;
-    transform: none;
-  }
-
-  .landing-v2-integrations-marquees {
-    justify-content: center;
   }
 
   .landing-v2-integrations-headline {
@@ -4731,9 +4745,26 @@ body:has(.comp-library-layout) {
 }
 
 @media (max-width: 768px) {
+  .landing-v2-container {
+    padding-inline: 0.25rem;
+  }
+
+  .landing-v2-hero-visual-pin {
+    width: 100%;
+    margin-inline: auto;
+  }
+
+  .landing-v2-hero-visual {
+    width: calc(100% - 1.5rem);
+    max-width: 100%;
+    margin-inline: auto;
+    border-radius: clamp(1rem, 4vw, var(--radius-card));
+  }
+
   .landing-v2-hero-steps {
     grid-template-columns: 1fr;
     gap: 2rem;
+    min-width: 0;
   }
 }
 

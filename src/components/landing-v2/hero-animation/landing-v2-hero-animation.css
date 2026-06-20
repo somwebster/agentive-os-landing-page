@@ -2,7 +2,6 @@
 .landing-v2-hero-animation {
   position: absolute;
   inset: 0;
-  overflow: hidden;
   -webkit-font-smoothing: antialiased;
   --bg:#F1EBE2;
   --bg-2:#ECE4D8;
