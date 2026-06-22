@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import {
   Code,
   Layout,
@@ -9,24 +9,22 @@ import {
   ChevronRight,
   Search,
 } from 'lucide-react';
-import Hero from './components/Hero';
-import Problem from './components/Problem';
-import OperationalLayer from './components/OperationalLayer';
-import Flow from './components/Flow';
-import CTA from './components/CTA';
-import FAQ from './components/FAQ';
 import ComponentLibrary, { GROUPS, COMPONENTS } from './components/ComponentLibrary';
 import AgentiveSDK, { SDK_GROUPS } from './components/AgentiveSDK';
 import Footer from './components/Footer';
 import { ShaderBackground } from './components/ShaderBackground';
 import { AppLayout } from './components/layout/AppLayout';
 import { LandingTopNav } from './components/navigation/LandingTopNav';
+import { LANDING_NAV_ITEMS_V1, LANDING_NAV_ITEMS_V2 } from './components/navigation/landingNavItems';
+import { LandingV1 } from './pages/LandingV1';
+import { LandingV2 } from './pages/LandingV2';
 
 function App() {
   const [isDark, setIsDark] = useState(false);
   const [isCollapsed, setIsCollapsed] = useState(false);
   const [isBuildersOpen, setIsBuildersOpen] = useState(false);
   const [currentPage, setCurrentPage] = useState<'home' | 'components' | 'sdk'>('home');
+  const [pathname, setPathname] = useState(() => window.location.pathname);
   const [compActiveId, setCompActiveId] = useState('overview');
   const [compQuery, setCompQuery] = useState('');
   const [sdkActiveId, setSdkActiveId] = useState('overview');
@@ -35,6 +33,15 @@ function App() {
   const isLanding = currentPage === 'home';
   const isDocsMode = currentPage === 'components' || currentPage === 'sdk';
   const shellVariant = isLanding ? 'landing' : 'docs';
+  const landingVersion = pathname === '/v2' ? 'v2' : 'v1';
+  const landingNavItems = landingVersion === 'v2' ? LANDING_NAV_ITEMS_V2 : LANDING_NAV_ITEMS_V1;
+
+  useEffect(() => {
+    const onPopState = () => setPathname(window.location.pathname);
+
+    window.addEventListener('popstate', onPopState);
+    return () => window.removeEventListener('popstate', onPopState);
+  }, []);
 
   const toggleTheme = () => {
     setIsDark(!isDark);
@@ -368,6 +375,7 @@ function App() {
             onNavigateSdk={() => setCurrentPage('sdk')}
             onNavigateComponents={() => setCurrentPage('components')}
             onScrollTo={scrollToSection}
+            navItems={landingNavItems}
           />
         }
         sidebarCollapsed={isCollapsed}
@@ -422,14 +430,7 @@ function App() {
             <Footer compact />
           </div>
         ) : (
-          <main className="page-main">
-            <Hero />
-            <Problem />
-            <OperationalLayer />
-            <Flow />
-            <FAQ />
-            <CTA />
-          </main>
+          landingVersion === 'v2' ? <LandingV2 /> : <LandingV1 />
         )}
       </AppLayout>
 

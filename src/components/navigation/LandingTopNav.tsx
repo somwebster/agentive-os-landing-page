@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Code, Layout, Sun, Moon, ChevronDown } from 'lucide-react';
 import { LandingNavMenu } from './LandingNavMenu';
+import type { LandingNavItem } from './landingNavItems';
 
 export type LandingTopNavProps = {
   isDark: boolean;
@@ -10,6 +11,7 @@ export type LandingTopNavProps = {
   onNavigateSdk: () => void;
   onNavigateComponents: () => void;
   onScrollTo: (selector: string) => void;
+  navItems?: LandingNavItem[];
 };
 
 function NavSymbol({ name }: { name: string }) {
@@ -28,6 +30,7 @@ export function LandingTopNav({
   onNavigateSdk,
   onNavigateComponents,
   onScrollTo,
+  navItems,
 }: LandingTopNavProps) {
   const [buildersOpen, setBuildersOpen] = useState(false);
   const scrollSpyEnabled = currentPage === 'home';
@@ -58,7 +61,7 @@ export function LandingTopNav({
           </div>
         </a>
 
-        <LandingNavMenu enabled={scrollSpyEnabled} onScrollTo={onScrollTo} />
+        <LandingNavMenu enabled={scrollSpyEnabled} onScrollTo={onScrollTo} items={navItems} />
 
         <div className="landing-top-nav-actions">
           <div className="dd-nav-builders">
