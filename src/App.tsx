@@ -33,7 +33,7 @@ function App() {
   const isLanding = currentPage === 'home';
   const isDocsMode = currentPage === 'components' || currentPage === 'sdk';
   const shellVariant = isLanding ? 'landing' : 'docs';
-  const landingVersion = pathname === '/v2' ? 'v2' : 'v1';
+  const landingVersion = pathname === '/v1' ? 'v1' : 'v2';
   const landingNavItems = landingVersion === 'v2' ? LANDING_NAV_ITEMS_V2 : LANDING_NAV_ITEMS_V1;
 
   useEffect(() => {
