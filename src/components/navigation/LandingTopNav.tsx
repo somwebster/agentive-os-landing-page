@@ -73,7 +73,7 @@ export function LandingTopNav({
               aria-haspopup="true"
             >
               <NavSymbol name="code_blocks" />
-              <span className="dd-nav-link-label">For Builders</span>
+              <span className="dd-nav-link-label">Docs</span>
               <ChevronDown size={16} strokeWidth={2} />
             </button>
             {buildersOpen && (
