@@ -12,18 +12,15 @@ import {
   ArrowRight,
   ArrowUpRight,
   BarChart3,
-  CheckCircle2,
   ChevronDown,
   CreditCard,
   FileText,
   Image,
+  Layers,
   MessageSquareText,
-  Route,
-  Send,
   Sparkles,
   Unplug,
   UsersRound,
-  Workflow,
   Zap,
 } from 'lucide-react';
 import GlassButton from '../GlassButton';
@@ -130,6 +127,43 @@ const PROBLEMS: {
   },
 ];
 
+const HOW_METRICS = [
+  {
+    statement: 'Ship client-ready work without the late nights',
+    value: '10×',
+    label: 'deliveries per week',
+    attribution: {
+      name: 'Kommerce AI',
+      role: 'Agency founder',
+      avatar: 'https://i.pravatar.cc/80?img=32',
+    },
+    icon: UsersRound,
+  },
+  {
+    statement: 'Let agents handle the repetitive ops',
+    value: '20+',
+    label: 'hours saved per account',
+    attribution: {
+      name: 'Catalyst Growth',
+      role: 'Head of operations',
+      avatar: 'https://i.pravatar.cc/80?img=47',
+    },
+    icon: Sparkles,
+  },
+  {
+    statement: 'Run more accounts without adding headcount',
+    value: '4.5+',
+    label: 'ROAS per brand',
+    attribution: {
+      name: 'Brightpath Media',
+      role: 'Paid media lead',
+      avatar: 'https://i.pravatar.cc/80?img=12',
+    },
+    icon: Layers,
+  },
+];
+
+/* Previous step-by-step content — kept for reference
 const HOW_STEPS = [
   {
     title: 'Start from a template.',
@@ -147,6 +181,7 @@ const HOW_STEPS = [
     icon: Send,
   },
 ];
+*/
 
 const BUILD_EXAMPLES = [
   { title: 'New-client research and onboarding', icon: UsersRound },
@@ -158,16 +193,9 @@ const BUILD_EXAMPLES = [
 
 const PRICING = [
   {
-    name: 'Free starter',
-    body: 'Create your account, build your first agent, and see it run. No card, no call.',
-    meta: 'Free with limits',
-    cta: 'Try for free',
-    featured: false,
-  },
-  {
     name: 'Self-serve',
-    body: 'Build and run your own agents with platform access, building blocks, and usage for the work your agents actually do.',
-    meta: 'Subscription plus usage',
+    body: 'Start for free, then build and run your own agents with platform access, building blocks, and usage for the work your agents actually do.',
+    meta: 'Free to start · subscription plus usage',
     cta: 'Try for free',
     featured: true,
   },
@@ -175,7 +203,7 @@ const PRICING = [
     name: 'Build with us',
     body: 'For complex operations, our team builds alongside you. You still own the workflows, process, and IP.',
     meta: 'Monthly build fee plus usage',
-    cta: 'Talk to a team',
+    cta: 'Talk to our team',
     featured: false,
   },
 ];
@@ -194,8 +222,8 @@ const FAQS = [
     a: 'Agents can run the repetitive work, but important spend, brand, and client-facing decisions can pause for human approval before anything ships.',
   },
   {
-    q: 'What happens when I outgrow the free starter?',
-    a: 'You can move into self-serve usage or work with the Agentive OS team on a build-with-us plan for more complex operations.',
+    q: 'How does pricing work after the free start?',
+    a: 'Self-serve starts free with limits. As you scale, you pay subscription plus usage. For complex operations, you can work with our team on a build-with-us plan.',
   },
 ];
 
@@ -205,10 +233,6 @@ function repeatItems<T>(items: T[], times: number): T[] {
 
 function openCalendly() {
   window.open(CALENDLY_URL, '_blank', 'noopener,noreferrer');
-}
-
-function PlaceholderCta({ children }: { children: React.ReactNode }) {
-  return <GlassButton className="landing-v2-cta-placeholder">{children}</GlassButton>;
 }
 
 function SecondaryButton({ children, onClick }: { children: React.ReactNode; onClick: () => void }) {
@@ -356,17 +380,15 @@ export function LandingV2Hero() {
         >
           <p className="landing-v2-eyebrow">The operating system for performance marketers</p>
           <h1 className="landing-v2-hero-title">
-            Build your own marketing agents.
-            <br />
-            Without writing code.
+          Turn your marketing operations into an AI-powered performance engine
           </h1>
           <p className="landing-v2-hero-sub">
             Configure systems that run on your workflows — your own AI agents and workflows on one shared
             knowledgebase, connected to the tools you already rely on. Scale your output without scaling your team.
           </p>
           <div className="landing-v2-actions">
-            <PlaceholderCta>Try for free</PlaceholderCta>
-            <SecondaryButton onClick={openCalendly}>Talk to a team</SecondaryButton>
+            <GlassButton>Try for free</GlassButton>
+            <SecondaryButton onClick={openCalendly}>Talk to our team</SecondaryButton>
           </div>
         </motion.div>
 
@@ -792,72 +814,19 @@ export function LandingV2Problem() {
   );
 }
 
-// ─── How it works: accordion-style steps + animated builder preview ───────────
+// ─── How it works: outcome metrics ─────────────────────────────────────────────
 
+/* Previous accordion + animated builder preview — kept for reference
 function HowItWorksVisual({ activeStep }: { activeStep: number }) {
   return (
     <div className="landing-v2-how-visual">
-      <div className="landing-v2-builder-shell">
-        <div className="landing-v2-builder-sidebar">
-          {['Reports', 'Creative', 'Media', 'Email'].map((item, index) => (
-            <div key={item} className={index === activeStep ? 'is-active' : ''}>{item}</div>
-          ))}
-        </div>
-        <div className="landing-v2-builder-main">
-          <motion.div
-            key={activeStep}
-            initial={{ opacity: 0, y: 10 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.3 }}
-            style={{ width: '100%' }}
-          >
-            {activeStep === 0 && (
-              <div className="landing-v2-template-grid">
-                {['Client report', 'Image generation', 'Media buying', 'Email marketing'].map((item) => (
-                  <div key={item}>
-                    <FileText size={16} />
-                    <span>{item}</span>
-                  </div>
-                ))}
-              </div>
-            )}
-            {activeStep === 1 && (
-              <div className="landing-v2-workflow-lines">
-                <p>If ROAS drops below target, pause weak ad sets and draft a client update.</p>
-                {['Pull account context', 'Check campaign pacing', 'Prepare approval note'].map((item) => (
-                  <div key={item}>
-                    <Route size={15} />
-                    <span>{item}</span>
-                  </div>
-                ))}
-              </div>
-            )}
-            {activeStep === 2 && (
-              <div className="landing-v2-approval-card">
-                <CheckCircle2 size={28} />
-                <h4>Ready for approval</h4>
-                <p>Spend change and brand-facing copy are queued for your review.</p>
-                <button type="button">Approve run</button>
-              </div>
-            )}
-          </motion.div>
-        </div>
-      </div>
+      ...
     </div>
   );
 }
+*/
 
 export function LandingV2HowItWorks() {
-  const [activeStep, setActiveStep] = useState(0);
-
-  useEffect(() => {
-    const timer = window.setInterval(() => {
-      setActiveStep((step) => (step + 1) % HOW_STEPS.length);
-    }, 3200);
-
-    return () => window.clearInterval(timer);
-  }, []);
-
   return (
     <section className="landing-v2-section landing-v2-how">
       <div className="landing-v2-container">
@@ -866,28 +835,45 @@ export function LandingV2HowItWorks() {
           If you can brief a teammate, <br />
           you can build an agent.
         </h2>
-        <div className="landing-v2-problem-split">
-          <div>
-            <div className="landing-v2-step-list">
-              {HOW_STEPS.map(({ icon: Icon, title, body }, index) => (
-                <button
-                  type="button"
-                  key={title}
-                  className={`landing-v2-step ${activeStep === index ? 'is-active' : ''}`}
-                  onClick={() => setActiveStep(index)}
-                >
-                  <span className="landing-v2-step-number">0{index + 1}</span>
-                  <span className="landing-v2-step-icon"><Icon size={18} /></span>
-                  <span className="landing-v2-step-copy">
-                    <strong>{title}</strong>
-                    <small>{body}</small>
-                  </span>
-                </button>
-              ))}
-            </div>
-            <p className="landing-v2-fine-print">No code at any step. Customize as deep as you want.</p>
-          </div>
-          <HowItWorksVisual activeStep={activeStep} />
+        <div className="features-grid landing-v2-how-metrics">
+          {HOW_METRICS.map(({ statement, value, valueSuffix, label, attribution, icon: Icon }) => (
+            <article className="card landing-v2-how-metric-card" key={statement}>
+              <div className="landing-v2-how-metric-top">
+                <div className="landing-v2-icon landing-v2-how-metric-icon">
+                  <Icon size={22} strokeWidth={2.2} />
+                </div>
+                <h3 className="landing-v2-how-metric-statement">{statement}</h3>
+              </div>
+              <div className="landing-v2-how-metric-divider" aria-hidden="true" />
+              <div className="landing-v2-how-metric-bottom">
+                <div className="landing-v2-how-metric-stats">
+                  <p className="landing-v2-how-metric-value">
+                    <span>{value}</span>
+                    {valueSuffix ? (
+                      <>
+                        {' '}
+                        <span className="landing-v2-how-metric-value-suffix">{valueSuffix}</span>
+                      </>
+                    ) : null}
+                  </p>
+                  <p className="landing-v2-how-metric-label">{label}</p>
+                </div>
+                <div className="landing-v2-how-metric-source">
+                  <img
+                    className="landing-v2-how-metric-avatar"
+                    src={attribution.avatar}
+                    alt=""
+                    loading="lazy"
+                    decoding="async"
+                  />
+                  <div className="landing-v2-how-metric-source-copy">
+                    <p className="landing-v2-how-metric-brand">{attribution.name}</p>
+                    <p className="landing-v2-how-metric-role">{attribution.role}</p>
+                  </div>
+                </div>
+              </div>
+            </article>
+          ))}
         </div>
       </div>
     </section>
@@ -936,7 +922,7 @@ export function LandingV2Results() {
           <div className="landing-v2-results-copy">
             <p>
               Kommerce AI is the first AI-native marketing agency we built on Agentive OS. In 30 days,
-              the same team was running <strong>[N]×</strong> the account volume.
+              the same team was running <strong>3×</strong> the account volume.
             </p>
             <span className="landing-v2-placeholder-note">Real before/after + founder quote to be added.</span>
           </div>
@@ -965,10 +951,10 @@ export function LandingV2Pricing() {
               <h3>{plan.name}</h3>
               <p>{plan.body}</p>
               <strong>{plan.meta}</strong>
-              {plan.cta === 'Talk to a team' ? (
+              {plan.cta === 'Talk to our team' ? (
                 <SecondaryButton onClick={openCalendly}>{plan.cta}</SecondaryButton>
               ) : (
-                <PlaceholderCta>{plan.cta}</PlaceholderCta>
+                <GlassButton>{plan.cta}</GlassButton>
               )}
             </article>
           ))}
@@ -1021,8 +1007,8 @@ export function LandingV2FinalCTA() {
           </h2>
           <p>Free to start. No code, no call — just the way you work, running by this afternoon.</p>
           <div className="landing-v2-actions">
-            <PlaceholderCta>Try for free</PlaceholderCta>
-            <SecondaryButton onClick={openCalendly}>Talk to a team</SecondaryButton>
+            <GlassButton>Try for free</GlassButton>
+            <SecondaryButton onClick={openCalendly}>Talk to our team</SecondaryButton>
           </div>
         </div>
       </div>

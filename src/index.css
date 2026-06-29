@@ -1330,15 +1330,15 @@ h1.hero-title {
 
 @media (min-width: 768px) {
   .landing-top-nav {
-    padding-left: 3rem; /* 48px */
-    padding-right: 3rem;
+    padding-left: 2rem;
+    padding-right: 2rem;
   }
 }
 
 @media (min-width: 1024px) {
   .landing-top-nav {
-    padding-left: 6rem; /* 96px */
-    padding-right: 6rem;
+    padding-left: 4rem;
+    padding-right: 4rem;
   }
 }
 
@@ -1347,7 +1347,7 @@ h1.hero-title {
   align-items: center;
   gap: 0.75rem;
   width: 100%;
-  padding: 1rem 2rem; /* py-4 px-8 */
+  padding: 1rem 1.5rem;
   box-sizing: border-box;
   background: linear-gradient(
     145deg,
@@ -1507,6 +1507,23 @@ h1.hero-title {
 .landing-top-nav-bar .dd-nav-builders-trigger.open {
   background: var(--brand-primary-25);
   color: var(--color-text-action);
+}
+
+@media (max-width: 1200px) {
+  .landing-top-nav-bar .dd-nav-brand-text {
+    display: none;
+  }
+
+  .landing-top-nav-bar {
+    padding-left: 1.25rem;
+    padding-right: 1.25rem;
+    gap: 0.5rem;
+  }
+
+  .landing-top-nav-bar .landing-nav-link,
+  .landing-top-nav-bar .dd-nav-builders-trigger {
+    padding-inline: clamp(0.4rem, 0.55vw, 0.7rem);
+  }
 }
 
 .dd-nav-builders-trigger svg:last-child {
@@ -1983,12 +2000,12 @@ h1.hero-title {
   .landing-top-nav {
     padding-top: 0.75rem;
     padding-bottom: 0.75rem;
-    padding-left: 2rem; /* px-8 */
-    padding-right: 2rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
   }
 
   .landing-top-nav-bar {
-    padding: 0.75rem 1.25rem; /* py-3 px-5 — tighter than desktop px-8 */
+    padding: 0.75rem 1rem;
     gap: 0.35rem;
   }
 
@@ -3707,26 +3724,6 @@ body:has(.comp-library-layout) {
   background: var(--brand-secondary-25);
 }
 
-.landing-v2-cta-placeholder {
-  cursor: pointer;
-}
-
-.landing-v2-cta-placeholder::after {
-  content: "placeholder";
-  position: absolute;
-  right: -0.15rem;
-  top: -0.65rem;
-  padding: 0.15rem 0.45rem;
-  border-radius: 999px;
-  background: var(--brand-secondary-25);
-  color: var(--brand-secondary-500);
-  border: 1px solid rgba(150, 59, 247, 0.2);
-  font-size: 0.55rem;
-  font-weight: 800;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-}
-
 .landing-v2-icon {
   width: 48px;
   height: 48px;
@@ -3760,13 +3757,13 @@ body:has(.comp-library-layout) {
   font-size: clamp(2rem, 6vw, 4.5rem) !important;
 }
 
-.landing-v2-pillars-grid,
-.landing-v2-pricing-grid {
+.landing-v2-pillars-grid {
   grid-template-columns: repeat(3, minmax(0, 1fr));
+  padding-top: 0;
 }
 
-.landing-v2-pillars-grid {
-  padding-top: 0;
+.landing-v2-pricing-grid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
 }
 
 .landing-v2-pillar-card {
@@ -4358,6 +4355,134 @@ body:has(.comp-library-layout) {
   line-height: 1.55;
 }
 
+.landing-v2-how-metrics {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem;
+  padding-top: 0;
+  margin-top: 0;
+}
+
+.landing-v2-how-metric-card {
+  min-height: 300px;
+  padding: clamp(1.35rem, 2.5vw, 1.85rem);
+  gap: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.landing-v2-how-metric-top {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  gap: 1rem;
+}
+
+.landing-v2-how-metric-icon {
+  margin-bottom: 0;
+  width: 40px;
+  height: 40px;
+  border-radius: 999px;
+}
+
+.landing-v2-how-metric-card h3.landing-v2-how-metric-statement {
+  font-family: var(--font-family);
+  font-size: clamp(1.05rem, 0.35rem + 1.1vw, 1.35rem);
+  font-weight: 500;
+  line-height: 1.3;
+  margin: 0;
+  color: var(--color-text-heading);
+}
+
+.landing-v2-how-metric-divider {
+  border-top: 1px solid var(--color-border-primary);
+  margin: 1.5rem 0 1.25rem;
+}
+
+.landing-v2-how-metric-bottom {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.landing-v2-how-metric-stats {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  flex: 1 1 auto;
+  min-width: 0;
+}
+
+.landing-v2-how-metric-card p.landing-v2-how-metric-value {
+  margin: 0;
+  font-family: 'EB Garamond', Georgia, 'Times New Roman', serif;
+  font-size: clamp(2rem, 1.25rem + 2.5vw, 3rem);
+  font-weight: 400;
+  line-height: 0.95;
+  letter-spacing: -0.02em;
+  color: var(--color-text-heading);
+}
+
+.landing-v2-how-metric-card p.landing-v2-how-metric-value .landing-v2-how-metric-value-suffix {
+  font-size: 1em;
+  font-weight: 400;
+}
+
+.landing-v2-how-metric-card p.landing-v2-how-metric-label {
+  margin: 0;
+  font-family: var(--font-family);
+  font-size: 0.78rem;
+  font-weight: 400;
+  line-height: 1.3;
+  color: var(--neutral-700);
+  max-width: 11rem;
+}
+
+.landing-v2-how-metric-source {
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+  flex: 0 0 auto;
+  margin-left: 0.5rem;
+}
+
+.landing-v2-how-metric-avatar {
+  width: 32px;
+  height: 32px;
+  border-radius: 999px;
+  object-fit: cover;
+  flex-shrink: 0;
+  border: 1px solid var(--color-border-primary);
+  background: var(--color-surface-primary);
+}
+
+.landing-v2-how-metric-source-copy {
+  display: flex;
+  flex-direction: column;
+  gap: 0.12rem;
+  min-width: 0;
+}
+
+.landing-v2-how-metric-card p.landing-v2-how-metric-brand {
+  margin: 0;
+  font-family: var(--font-family);
+  font-size: 0.62rem;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--neutral-400);
+  line-height: 1.2;
+}
+
+.landing-v2-how-metric-card p.landing-v2-how-metric-role {
+  margin: 0;
+  font-family: var(--font-family);
+  font-size: 0.62rem;
+  font-weight: 400;
+  line-height: 1.25;
+  color: var(--neutral-400);
+}
+
 .landing-v2-how-visual {
   background: rgba(255, 255, 255, 0.9);
   border: 1px solid var(--color-border-primary);
@@ -4666,6 +4791,7 @@ body:has(.comp-library-layout) {
 
 [data-theme='dark'] .landing-v2-secondary-btn,
 [data-theme='dark'] .landing-v2-how-visual,
+[data-theme='dark'] .landing-v2-how-metric-card,
 [data-theme='dark'] .landing-v2-step,
 [data-theme='dark'] .landing-v2-faq-item {
   background: rgba(28, 18, 12, 0.86);
@@ -4706,7 +4832,8 @@ body:has(.comp-library-layout) {
 
 @media (max-width: 1100px) {
   .landing-v2-problem-split,
-  .landing-v2-results-card {
+  .landing-v2-results-card,
+  .landing-v2-how-metrics {
     grid-template-columns: 1fr;
   }
 
